@@ -1,3 +1,5 @@
+'use client';
+import { useEffect, useState } from 'react';
 import CoffeeBox from './coffeeBox';
 import { Data } from './types';
 
@@ -9,13 +11,20 @@ const getData = async () => {
   return datas;
 };
 
-const CoffeeView = async () => {
-  const datas = await getData();
-  console.log(datas);
+const CoffeeView = () => {
+  const [datas, setDatas] = useState([]);
+
+  useEffect(() => {
+    const callGetData = async () => {
+      const data = await getData();
+      setDatas(data);
+    };
+    callGetData();
+  });
 
   return (
     <div className='grid-rows-auto grid-cols-3 grid grid-flow-row gap-x-5 justify-evenly justify-items-center'>
-      {datas.map((data: Data, index: string) => (
+      {datas.map((data: Data, index: number) => (
         <CoffeeBox key={index} data={data} />
       ))}
     </div>

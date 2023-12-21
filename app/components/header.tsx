@@ -10,10 +10,10 @@ const Header = () => {
         </h4>
       </div>
       <div className='flex justify-center'>
-        <button className='border rounded-md mt-3 mr-4 p-1'>
+        <button className='border rounded-md mt-3 mr-4 p-2'>
           All Products
         </button>
-        <button className='border rounded-md mt-3 ml-4 p-1'>
+        <button className='border rounded-md mt-3 ml-4 p-2'>
           Available Now
         </button>
       </div>

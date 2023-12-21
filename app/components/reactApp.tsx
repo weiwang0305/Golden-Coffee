@@ -13,7 +13,7 @@ const ReactApp = () => {
           style={{ objectFit: 'cover' }}
         />
       </div>
-      <div className='relative bg-gray-900 w-5/6 h-4/6 -mt-[120px] z-1 m-auto rounded-3xl'>
+      <div className='relative bg-gray-900 w-5/6 -mt-[120px] z-1 m-auto rounded-3xl'>
         <Header />
         <div>
           <CoffeeView />

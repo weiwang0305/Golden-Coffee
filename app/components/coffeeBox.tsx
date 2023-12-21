@@ -26,7 +26,10 @@ const CoffeeBox = ({ data }: { data: Data }) => {
           width={20}
           height={25}
         />
-        {data.rating}({data.votes} votes)
+        {data.rating}
+        <span className='text-[#6F757C] text-xs flex justify-center items-center'>
+          ({data.votes} votes)
+        </span>
       </div>
     </div>
   );
