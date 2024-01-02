@@ -2,11 +2,21 @@ import type { Metadata } from 'next';
 import { DM_Sans } from 'next/font/google';
 import './globals.css';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const dm_sans = DM_Sans({
   weight: '400',
   subsets: ['latin'],
 });
+
+const navigation = [
+  { href: '/', label: 'Home' },
+  { href: '/bakery', label: 'The Bakery' },
+  { href: '/cafe', label: 'The Cafe' },
+  { href: '/local', label: 'Little Local' },
+  { href: '/foodtruck', label: 'The Food Truck' },
+  { href: '/contact', label: 'Contact' },
+];
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -26,8 +36,21 @@ export default function RootLayout({
             <span>Join the Coffee Club ☕! 50% OFF FIRST ORDER!</span>
           </button>
         </div>
-        <div>
-          <div className='text-4xl font-extrabold'>Golden Coffee</div>
+        <div className='flex w-auto align-center justify-around flex-nowrap'>
+          <div className='text-4xl font-black tracking-wider'>
+            <span>Golden Coffee</span>
+          </div>
+          <div>
+            {navigation.map((nav) => (
+              <Link
+                className='mr-5 relative group'
+                key={nav.label}
+                href={nav.href}
+              >
+                {nav.label}
+              </Link>
+            ))}
+          </div>
         </div>
         {children}
       </body>
