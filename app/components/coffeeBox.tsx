@@ -6,11 +6,11 @@ const CoffeeBox = ({ data }: { data: Data }) => {
     <div className='mb-10'>
       <div className='flex justify-center rounded-md'>
         <Image
-          className='rounded-md'
+          className='rounded-md w-[250px] h-[175px]'
           src={data.image}
           alt='Coffee Image'
-          width={200}
-          height={200}
+          width={250}
+          height={175}
         />
       </div>
       <div className='flex justify-between mt-3'>

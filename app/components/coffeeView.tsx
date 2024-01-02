@@ -20,13 +20,40 @@ const CoffeeView = () => {
       setDatas(data);
     };
     callGetData();
-  });
+  }, []);
 
+  const getAllProduct = async () => {
+    const newData = await getData();
+    setDatas(newData);
+  };
+
+  const getAvailableNow = async () => {
+    let newData = await getData();
+    newData = newData.filter((data: Data) => data.available === true);
+    setDatas(newData);
+  };
+  console.log(datas);
   return (
-    <div className='grid-rows-auto grid-cols-3 grid grid-flow-row gap-x-5 justify-evenly justify-items-center'>
-      {datas.map((data: Data, index: number) => (
-        <CoffeeBox key={index} data={data} />
-      ))}
+    <div>
+      <div className='flex justify-center'>
+        <button
+          className='border rounded-md mt-2 mr-4 p-2 mb-8 hover:bg-gray-700'
+          onClick={getAllProduct}
+        >
+          All Products
+        </button>
+        <button
+          className='border rounded-md mt-2 ml-4 p-2 mb-8 hover:bg-gray-700'
+          onClick={getAvailableNow}
+        >
+          Available Now
+        </button>
+      </div>
+      <div className='grid-rows-auto grid-cols-3 grid grid-flow-row gap-x-5 justify-evenly justify-items-center'>
+        {datas.map((data: Data, index: number) => (
+          <CoffeeBox key={index} data={data} />
+        ))}
+      </div>
     </div>
   );
 };

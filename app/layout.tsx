@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { DM_Sans } from 'next/font/google';
 import './globals.css';
+import Image from 'next/image';
 
 const dm_sans = DM_Sans({
   weight: '400',
@@ -19,7 +20,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={dm_sans.className}>{children}</body>
+      <body className={dm_sans.className}>
+        <div className='flex justify-center text-lg'>
+          <button>
+            <span>Join the Coffee Club ☕! 50% OFF FIRST ORDER!</span>
+          </button>
+        </div>
+        <div>
+          <div className='text-4xl font-extrabold'>Golden Coffee</div>
+        </div>
+        {children}
+      </body>
     </html>
   );
 }
