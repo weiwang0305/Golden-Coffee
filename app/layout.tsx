@@ -36,7 +36,7 @@ export default function RootLayout({
             <span>Join the Coffee Club ☕! 50% OFF FIRST ORDER!</span>
           </button>
         </div>
-        <div className='flex w-auto align-center justify-around flex-nowrap'>
+        <div className='flex w-4/5 m-auto align-center justify-between flex-nowrap'>
           <div className='text-4xl font-black tracking-wider'>
             <span>Golden Coffee</span>
           </div>
