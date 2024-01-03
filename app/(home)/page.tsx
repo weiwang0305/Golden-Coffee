@@ -97,6 +97,72 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+
+      <div>
+        <div className='grid grid-row-3 justify-items-center text-center mt-5 bg-[#fffddd2]'>
+          <h3 className='text-2xl'>
+            ORGANIC NATURAL INGREDIENTS AND NO PRESERVATIVES
+          </h3>
+          <p>Make People Happy</p>
+          <div className='flex p-4 gap-4'>
+            <div className='basis-1/3'>
+              <div className='h-[160px] w-[300px] overflow-hidden mx-auto'>
+                <Image
+                  src={'/ethicallysourced.jpg'}
+                  alt='Ethically sourced coffee'
+                  height={180}
+                  width={300}
+                />
+              </div>
+              <p>Ethically Sourced Goodness:</p>
+              <p>
+                Behold the journey of our ethically sourced coffee beans, a
+                testament to our commitment to sustainability. With deep
+                relationships with farmers, our beans reflect integrity and
+                care, ensuring a cup of coffee that not only tastes good but
+                also does good for the planet.
+              </p>
+            </div>
+            <div className='basis-1/3'>
+              <div className='h-[160px] w-[300px] overflow-hidden mx-auto'>
+                <Image
+                  src={'/coffee-beans.jpg'}
+                  alt='Coffee Beans'
+                  height={300}
+                  width={300}
+                />
+              </div>
+              <p>From Bean to Brew - Coffee Beans Unveiled:</p>
+              <p>
+                Explore the heart of Golden Coffee with a glimpse into the world
+                of our meticulously selected coffee beans. From cultivation to
+                brewing, our dedication to quality shines through, promising a
+                joyful experience in every sip. At Golden Coffee, we celebrate
+                the pure journey from bean to brew.
+              </p>
+            </div>
+            <div className='basis-1/3'>
+              <div className='h-[160px] w-[300px] overflow-hidden mx-auto'>
+                <Image
+                  src={'/happyperson.jpg'}
+                  alt='Happy person drinking coffee'
+                  height={300}
+                  width={300}
+                  className='mx-auto'
+                />
+              </div>
+              <p>A Joyful Sip - Happy Person, Happy Coffee:</p>
+              <p>
+                Experience the joy in every sip with our happy customer enjoying
+                the warmth of Golden Coffee. Free from preservatives and crafted
+                with organic, natural ingredients, our coffee not only satisfies
+                your taste buds but also brings genuine happiness. Elevate your
+                mood with every delightful moment of Golden Coffee bliss.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
