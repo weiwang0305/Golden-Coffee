@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Barlow } from 'next/font/google';
 import './globals.css';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const CurrentFont = Barlow({
   weight: '400',
@@ -29,8 +30,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={CurrentFont.className}>
-        <div className='flex justify-center text-lg'>
+      <body className={`${CurrentFont.className} bg-[#edf6f9]`}>
+        <div className='flex justify-center text-lg bg-[#22223b] text-gray-200'>
           <button>
             <span>Join the Coffee Club ☕! 50% OFF FIRST ORDER!</span>
           </button>
@@ -52,6 +53,90 @@ export default function RootLayout({
           </div>
         </div>
         {children}
+        <div className='bg-[#4a4e69] text-[#f2e9e4]'>
+          <div className='flex flex-row p-5 gap-10'>
+            <div id='location1'>
+              <p>Golden Coffee Cafe @ Java</p>
+              <p>123 Java Street</p>
+              <p>Brewville, CO</p>
+              <p>80123</p>
+              <p>(555)-123-4567</p>
+            </div>
+            <div>
+              <h2>Hours</h2>
+              <p>Everyday</p>
+              <p>7AM - 4PM</p>
+              <h2>Holiday Hours</h2>
+              <p>8AM - 3PM December 23</p>
+              <p>8AM - 3PM December 24</p>
+              <p>CLOSED December 25 - December 28</p>
+              <p>8AM - 3PM December 29</p>
+              <p>8AM - 3PM December 30</p>
+              <p>8AM - 3PM December 31</p>
+              <p>10AM - 2PM January 1</p>
+            </div>
+            <div id='location2'>
+              <p>Golden Coffee Cafe @ Espresso</p>
+              <p>987 Espresso Avenue</p>
+              <p>Roastington, CA</p>
+              <p>90210</p>
+              <p>(555)-789-0123</p>
+            </div>
+            <div>
+              <h2>Hours</h2>
+              <p>Everyday</p>
+              <p>7AM - 4PM</p>
+              <h2>Holiday Hours</h2>
+              <p>8AM - 3PM December 23</p>
+              <p>8AM - 3PM December 24</p>
+              <p>CLOSED December 25 - December 28</p>
+              <p>8AM - 3PM December 29</p>
+              <p>8AM - 3PM December 30</p>
+              <p>8AM - 3PM December 31</p>
+              <p>10AM - 2PM January 1</p>
+            </div>
+            <div id='contact'>
+              <div className='flex flex-row gap-4'>
+                <div>
+                  <Image
+                    src={'/fb.svg'}
+                    alt='fb icon'
+                    height={25}
+                    width={25}
+                    className='grayscale'
+                  />
+                </div>
+                <div>
+                  <Image
+                    src={'/instagram.svg'}
+                    alt='instagram icon'
+                    height={25}
+                    width={25}
+                    className='grayscale'
+                  />
+                </div>
+                <div>
+                  <Image
+                    src={'/tiktok-logo-4500.svg'}
+                    alt='tiktok icon'
+                    height={25}
+                    width={25}
+                    className='grayscale'
+                  />
+                </div>
+                <div>
+                  <Image
+                    src={'/Logo_of_Twitter.svg'}
+                    alt='twitter logo'
+                    height={25}
+                    width={25}
+                    className='grayscale'
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </body>
     </html>
   );

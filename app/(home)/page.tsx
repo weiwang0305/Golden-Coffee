@@ -2,7 +2,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Barlow } from 'next/font/google';
 
-const barlow = Barlow({
+const barlow700 = Barlow({
+  weight: '700',
+  subsets: ['latin'],
+});
+
+const barlow600 = Barlow({
   weight: '600',
   subsets: ['latin'],
 });
@@ -104,16 +109,16 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div>
-        <div className='grid grid-row-3 justify-items-center text-center mt-5 bg-[#fffddd2]'>
-          <h3 className={`${barlow.className} text-2xl font-bold`}>
+      <div className='bg-[#fffddd2]'>
+        <div className='grid grid-row-3 bg-[#edf6f9]justify-items-center text-center mt-5 bg-[#fffddd2]'>
+          <h3 className={`${barlow700.className} text-2xl font-bold`}>
             ORGANIC NATURAL INGREDIENTS AND NO PRESERVATIVES
           </h3>
-          <p className={`${barlow.className} text-5xl p-5`}>
+          <p className={`${barlow700.className} text-5xl p-5`}>
             Make People Happy
           </p>
           <div className='flex p-4 gap-4'>
-            <div className='basis-1/3 bg-[#f2e9e4] p-5 rounded-lg'>
+            <div className='basis-1/3 p-5 rounded-lg'>
               <div className='h-[160px] w-[300px] overflow-hidden mx-auto'>
                 <Image
                   src={'/ethicallysourced.jpg'}
@@ -122,7 +127,9 @@ const HomePage = () => {
                   width={300}
                 />
               </div>
-              <p className='text-xl p-2'>Ethically Sourced Goodness:</p>
+              <p className={`${barlow600.className} text-xl p-2 font-bold`}>
+                Ethically Sourced Goodness:
+              </p>
               <p>
                 Behold the journey of our ethically sourced coffee beans, a
                 testament to our commitment to sustainability. With deep
@@ -131,7 +138,7 @@ const HomePage = () => {
                 also does good for the planet.
               </p>
             </div>
-            <div className='basis-1/3 bg-[#f2e9e4] p-5 rounded-lg'>
+            <div className='basis-1/3 p-5 rounded-lg'>
               <div className='h-[160px] w-[300px] overflow-hidden mx-auto'>
                 <Image
                   src={'/coffee-beans.jpg'}
@@ -140,7 +147,9 @@ const HomePage = () => {
                   width={300}
                 />
               </div>
-              <p className='text-xl p-2'>Bean to Brew Brilliance:</p>
+              <p className={`${barlow600.className} text-xl p-2 font-bold`}>
+                Bean to Brew Brilliance:
+              </p>
               <p>
                 Explore the heart of Golden Coffee with a glimpse into the world
                 of our meticulously selected coffee beans. From cultivation to
@@ -149,7 +158,7 @@ const HomePage = () => {
                 the pure journey from bean to brew.
               </p>
             </div>
-            <div className='basis-1/3 bg-[#f2e9e4] p-5 rounded-lg'>
+            <div className='basis-1/3 p-5 rounded-lg'>
               <div className='h-[160px] w-[300px] overflow-hidden mx-auto'>
                 <Image
                   src={'/happyperson.jpg'}
@@ -159,7 +168,9 @@ const HomePage = () => {
                   className='mx-auto'
                 />
               </div>
-              <p className='text-xl p-2'>Sip, Smile, Repeat:</p>
+              <p className={`${barlow600.className} text-xl p-2 font-bold`}>
+                Sip, Smile, Repeat:
+              </p>
               <p>
                 Experience the joy in every sip with our happy customer enjoying
                 the warmth of Golden Coffee. Free from preservatives and crafted
