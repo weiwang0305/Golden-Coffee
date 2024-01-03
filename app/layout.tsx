@@ -1,10 +1,9 @@
 import type { Metadata } from 'next';
-import { DM_Sans } from 'next/font/google';
+import { Barlow } from 'next/font/google';
 import './globals.css';
-import Image from 'next/image';
 import Link from 'next/link';
 
-const dm_sans = DM_Sans({
+const CurrentFont = Barlow({
   weight: '400',
   subsets: ['latin'],
 });
@@ -30,7 +29,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={dm_sans.className}>
+      <body className={CurrentFont.className}>
         <div className='flex justify-center text-lg'>
           <button>
             <span>Join the Coffee Club ☕! 50% OFF FIRST ORDER!</span>
