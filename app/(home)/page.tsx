@@ -1,5 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { Barlow } from 'next/font/google';
+
+const barlow = Barlow({
+  weight: '600',
+  subsets: ['latin'],
+});
 
 const HomePage = () => {
   return (
@@ -100,12 +106,14 @@ const HomePage = () => {
 
       <div>
         <div className='grid grid-row-3 justify-items-center text-center mt-5 bg-[#fffddd2]'>
-          <h3 className='text-2xl'>
+          <h3 className={`${barlow.className} text-2xl font-bold`}>
             ORGANIC NATURAL INGREDIENTS AND NO PRESERVATIVES
           </h3>
-          <p>Make People Happy</p>
+          <p className={`${barlow.className} text-5xl p-5`}>
+            Make People Happy
+          </p>
           <div className='flex p-4 gap-4'>
-            <div className='basis-1/3'>
+            <div className='basis-1/3 bg-[#f2e9e4] p-5 rounded-lg'>
               <div className='h-[160px] w-[300px] overflow-hidden mx-auto'>
                 <Image
                   src={'/ethicallysourced.jpg'}
@@ -114,7 +122,7 @@ const HomePage = () => {
                   width={300}
                 />
               </div>
-              <p>Ethically Sourced Goodness:</p>
+              <p className='text-xl p-2'>Ethically Sourced Goodness:</p>
               <p>
                 Behold the journey of our ethically sourced coffee beans, a
                 testament to our commitment to sustainability. With deep
@@ -123,7 +131,7 @@ const HomePage = () => {
                 also does good for the planet.
               </p>
             </div>
-            <div className='basis-1/3'>
+            <div className='basis-1/3 bg-[#f2e9e4] p-5 rounded-lg'>
               <div className='h-[160px] w-[300px] overflow-hidden mx-auto'>
                 <Image
                   src={'/coffee-beans.jpg'}
@@ -132,7 +140,7 @@ const HomePage = () => {
                   width={300}
                 />
               </div>
-              <p>From Bean to Brew - Coffee Beans Unveiled:</p>
+              <p className='text-xl p-2'>Bean to Brew Brilliance:</p>
               <p>
                 Explore the heart of Golden Coffee with a glimpse into the world
                 of our meticulously selected coffee beans. From cultivation to
@@ -141,7 +149,7 @@ const HomePage = () => {
                 the pure journey from bean to brew.
               </p>
             </div>
-            <div className='basis-1/3'>
+            <div className='basis-1/3 bg-[#f2e9e4] p-5 rounded-lg'>
               <div className='h-[160px] w-[300px] overflow-hidden mx-auto'>
                 <Image
                   src={'/happyperson.jpg'}
@@ -151,7 +159,7 @@ const HomePage = () => {
                   className='mx-auto'
                 />
               </div>
-              <p>A Joyful Sip - Happy Person, Happy Coffee:</p>
+              <p className='text-xl p-2'>Sip, Smile, Repeat:</p>
               <p>
                 Experience the joy in every sip with our happy customer enjoying
                 the warmth of Golden Coffee. Free from preservatives and crafted
