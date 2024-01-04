@@ -1,5 +1,5 @@
-import Header from '../components/header';
-import CoffeeView from '../components/coffeeView';
+import Header from '../../components/header';
+import CoffeeView from '../../components/coffeeView';
 
 const CafePage = () => {
   return (
