@@ -1,9 +1,4 @@
-const BakeryPage = ({ params }) => {
-  return (
-    <div>
-      This is the bakery page... WIP
-      {params.productID}
-    </div>
-  );
+const BakeryPage = () => {
+  return <div>This is the bakery page... WIP</div>;
 };
 export default BakeryPage;

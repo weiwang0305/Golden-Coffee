@@ -54,84 +54,92 @@ export default function RootLayout({
         </div>
         {children}
         <div className='bg-[#4a4e69] text-[#f2e9e4]'>
-          <div className='flex flex-row p-5 gap-10'>
-            <div id='location1'>
-              <p>Golden Coffee Cafe @ Java</p>
-              <p>123 Java Street</p>
-              <p>Brewville, CO</p>
-              <p>80123</p>
-              <p>(555)-123-4567</p>
-            </div>
-            <div>
-              <h2>Hours</h2>
-              <p>Everyday</p>
-              <p>7AM - 4PM</p>
-              <h2>Holiday Hours</h2>
-              <p>8AM - 3PM December 23</p>
-              <p>8AM - 3PM December 24</p>
-              <p>CLOSED December 25 - December 28</p>
-              <p>8AM - 3PM December 29</p>
-              <p>8AM - 3PM December 30</p>
-              <p>8AM - 3PM December 31</p>
-              <p>10AM - 2PM January 1</p>
-            </div>
-            <div id='location2'>
-              <p>Golden Coffee Cafe @ Espresso</p>
-              <p>987 Espresso Avenue</p>
-              <p>Roastington, CA</p>
-              <p>90210</p>
-              <p>(555)-789-0123</p>
-            </div>
-            <div>
-              <h2>Hours</h2>
-              <p>Everyday</p>
-              <p>7AM - 4PM</p>
-              <h2>Holiday Hours</h2>
-              <p>8AM - 3PM December 23</p>
-              <p>8AM - 3PM December 24</p>
-              <p>CLOSED December 25 - December 28</p>
-              <p>8AM - 3PM December 29</p>
-              <p>8AM - 3PM December 30</p>
-              <p>8AM - 3PM December 31</p>
-              <p>10AM - 2PM January 1</p>
+          <div className='flex flex-row p-5 justify-between'>
+            <div className='flex flex-row p-5 gap-10'>
+              <div id='location1'>
+                <p>Golden Coffee Cafe @ Java</p>
+                <p>123 Java Street</p>
+                <p>Brewville, CO</p>
+                <p>80123</p>
+                <p>(555)-123-4567</p>
+              </div>
+              <div>
+                <h2>Hours</h2>
+                <p>Everyday</p>
+                <p>7AM - 4PM</p>
+                <h2>Holiday Hours</h2>
+                <p>8AM - 3PM December 23</p>
+                <p>8AM - 3PM December 24</p>
+                <p>CLOSED December 25 - December 28</p>
+                <p>8AM - 3PM December 29</p>
+                <p>8AM - 3PM December 30</p>
+                <p>8AM - 3PM December 31</p>
+                <p>10AM - 2PM January 1</p>
+              </div>
+              <div id='location2'>
+                <p>Golden Coffee Cafe @ Espresso</p>
+                <p>987 Espresso Avenue</p>
+                <p>Roastington, CA</p>
+                <p>90210</p>
+                <p>(555)-789-0123</p>
+              </div>
+              <div>
+                <h2>Hours</h2>
+                <p>Everyday</p>
+                <p>7AM - 4PM</p>
+                <h2>Holiday Hours</h2>
+                <p>8AM - 3PM December 23</p>
+                <p>8AM - 3PM December 24</p>
+                <p>CLOSED December 25 - December 28</p>
+                <p>8AM - 3PM December 29</p>
+                <p>8AM - 3PM December 30</p>
+                <p>8AM - 3PM December 31</p>
+                <p>10AM - 2PM January 1</p>
+              </div>
             </div>
             <div id='contact'>
-              <div className='flex flex-row gap-4'>
-                <div>
-                  <Image
-                    src={'/fb.svg'}
-                    alt='fb icon'
-                    height={25}
-                    width={25}
-                    className='grayscale'
-                  />
+              <div className='flex flex-col'>
+                <div className='flex flex-row gap-4'>
+                  <div>
+                    <Image
+                      src={'/icons8-facebook.svg'}
+                      alt='fb icon'
+                      height={25}
+                      width={25}
+                      className='bg-d'
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src={'/icons8-instagram.svg'}
+                      alt='instagram icon'
+                      height={25}
+                      width={25}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src={'/icons8-tiktok.svg'}
+                      alt='tiktok icon'
+                      height={25}
+                      width={25}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src={'/icons8-twitter.svg'}
+                      alt='twitter logo'
+                      height={25}
+                      width={25}
+                      className='grayscale'
+                    />
+                  </div>
                 </div>
-                <div>
-                  <Image
-                    src={'/instagram.svg'}
-                    alt='instagram icon'
-                    height={25}
-                    width={25}
-                    className='grayscale'
-                  />
-                </div>
-                <div>
-                  <Image
-                    src={'/tiktok-logo-4500.svg'}
-                    alt='tiktok icon'
-                    height={25}
-                    width={25}
-                    className='grayscale'
-                  />
-                </div>
-                <div>
-                  <Image
-                    src={'/Logo_of_Twitter.svg'}
-                    alt='twitter logo'
-                    height={25}
-                    width={25}
-                    className='grayscale'
-                  />
+                <div className='mt-5 font-semibold text-gray-200'>
+                  <p>Careers</p>
+                  <p>Contact Us</p>
+                  <p>Gift Cards</p>
+                  <p>Loyalty</p>
                 </div>
               </div>
             </div>

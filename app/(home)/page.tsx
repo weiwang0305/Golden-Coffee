@@ -33,12 +33,14 @@ const HomePage = () => {
       <div className='mt-[100px] w-4/5 m-auto flex flex-row gap-5 grow'>
         <div className='flex-1'>
           <div className='flex justify-center'>
-            <Image
-              src={'/bakery.jpg'}
-              alt='bakehouse'
-              width={300}
-              height={300}
-            />
+            <Link href='/bakery'>
+              <Image
+                src={'/bakery.jpg'}
+                alt='bakehouse'
+                width={300}
+                height={300}
+              />
+            </Link>
           </div>
           <p className='text-center text-2xl p-1'>The Bakery</p>
           <p className='text-center text-l flex-wrap p-3'>
