@@ -33,7 +33,9 @@ export default function RootLayout({
       <body className={`${CurrentFont.className} bg-[#edf6f9]`}>
         <div className='flex justify-center text-lg bg-[#22223b] text-gray-200'>
           <Link href='/account/register'>
-            <span>Join the Coffee Club ☕! 50% OFF FIRST ORDER!</span>
+            <span className='tracking-widest'>
+              Join the Coffee Club ☕! 50% OFF FIRST ORDER!
+            </span>
           </Link>
         </div>
         <div className='flex w-4/5 m-auto align-center justify-between flex-nowrap'>
