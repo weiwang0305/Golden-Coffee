@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Barlow } from 'next/font/google';
-import '../globals.css';
+import './globals.css';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -32,7 +32,7 @@ export default function RootLayout({
     <html lang='en'>
       <body className={`${CurrentFont.className} bg-[#edf6f9]`}>
         <div className='flex justify-center text-lg bg-[#22223b] text-gray-200'>
-          <Link href='/signup'>
+          <Link href='/account/register'>
             <span>Join the Coffee Club ☕! 50% OFF FIRST ORDER!</span>
           </Link>
         </div>
