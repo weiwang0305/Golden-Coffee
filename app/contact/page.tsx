@@ -30,26 +30,55 @@ const ContactPage = () => {
       </div>
 
       <div className='w-[800px] h-full m-auto mb-10'>
-        <form className='grid grid-cols-[400px_400px] grid-rows-[20px_20px_360px] gap-5'>
+        <form className='grid grid-cols-[400px_400px] grid-rows-[20px_20px_360px] gap-7'>
           <div className='relative'>
-            <input className='w-full h-[30px]' type='text'></input>
-            <span className='absolute top-0 left-3'>First name</span>
+            <input
+              className='w-full h-[30px] pl-2 outline-none focus:border-b-2 peer'
+              type='text'
+              required
+            ></input>
+            <span className='absolute top-1 left-3 peer-focus:text-xs peer-focus:-top-4 transition-all peer-valid:text-xs peer-valid:-top-4'>
+              First name
+            </span>
           </div>
           <div className='relative'>
-            <input className='w-full h-[30px]' type='text'></input>
-            <span className='absolute top-0 left-3'>Last name</span>
+            <input
+              className='w-full h-[30px] pl-2 outline-none focus:border-b-2 peer'
+              type='text'
+              required
+            ></input>
+            <span className='absolute top-1 left-3 peer-focus:text-xs peer-focus:-top-4 transition-all peer-valid:text-xs peer-valid:-top-4'>
+              Last name
+            </span>
           </div>
-          <div className='relative h-[30px]'>
-            <input className='w-full' type='text'></input>
-            <span className='absolute top-0 left-3'>Email</span>
+          <div className='relative'>
+            <input
+              className='w-full h-[30px] pl-2 outline-none peer'
+              type='text'
+              required
+            ></input>
+            <span className='absolute top-1 left-3 peer-focus:text-xs peer-focus:-top-4 transition-all peer-valid:text-xs peer-valid:-top-4'>
+              Email
+            </span>
           </div>
-          <div className='relative h-[30px]'>
-            <input className='w-full' type='text'></input>
-            <span className='absolute top-0 left-3'>Website</span>
+          <div className='relative'>
+            <input
+              className='w-full h-[30px] pl-2 outline-none peer'
+              type='text'
+              required
+            ></input>
+            <span className='absolute top-1 left-3 peer-focus:text-xs peer-focus:-top-4 transition-all peer-valid:text-xs peer-valid:-top-4'>
+              Website
+            </span>
           </div>
           <div className='relative col-span-2'>
-            <textarea className='w-full h-full' />
-            <span className='absolute top-0 left-3'>Message</span>
+            <textarea
+              className='w-full h-full pl-2 outline-none peer resize-none'
+              required
+            />
+            <span className='absolute top-0 left-3 peer-focus:text-xs peer-focus:-top-4 transition-all peer-valid:text-xs peer-valid:-top-4'>
+              Message
+            </span>
           </div>
         </form>
       </div>
