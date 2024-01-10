@@ -1,4 +1,6 @@
+import BakeryView from '../components/bakeryView';
+
 const BakeryPage = () => {
-  return <div>This is the bakery page... WIP</div>;
+  return <BakeryView />;
 };
 export default BakeryPage;

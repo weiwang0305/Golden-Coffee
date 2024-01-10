@@ -9,13 +9,16 @@ const pacifico = Pacifico({
 });
 
 const ContactPageView = () => {
-  const handleContactSubmit = (e) => {
+  const handleContactSubmit = (e: React.FormEvent<HTMLInputElement>) => {
+    e.preventDefault();
     const inputs = document.querySelectorAll('input');
     const message = document.querySelector('textarea');
     const result = [];
     for (let i = 0; i < inputs.length; i++) {
       result.push(inputs[i].value);
     }
+    result.push(message?.value);
+    console.log(result);
   };
 
   return (
@@ -93,7 +96,7 @@ const ContactPageView = () => {
           </div>
           <div className='relative col-span-2'>
             <textarea
-              className='w-full h-full pl-2 outline-none peer resize-none'
+              className='w-full h-full px-2 outline-none peer resize-none'
               name='message'
               id='message'
               required
@@ -105,7 +108,7 @@ const ContactPageView = () => {
           <button
             type='submit'
             onClick={handleContactSubmit}
-            className='m-auto border rounded-lg w-[100px] h-[40px] bg-[#22223b] text-white'
+            className='border rounded-lg w-[100px] h-[40px] bg-[#22223b] text-white m-0'
           >
             Send Now
           </button>
