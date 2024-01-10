@@ -9,8 +9,8 @@ const pacifico = Pacifico({
 });
 
 const ContactPageView = () => {
-  const handleContactSubmit = (e: React.FormEvent<HTMLInputElement>) => {
-    e.preventDefault();
+  const handleContactSubmit = (event: React.FormEvent<HTMLInputElement>) => {
+    event.preventDefault();
     const inputs = document.querySelectorAll('input');
     const message = document.querySelector('textarea');
     const result = [];
