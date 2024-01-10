@@ -9,7 +9,7 @@ const pacifico = Pacifico({
 });
 
 const ContactPageView = () => {
-  const handleContactSubmit = (event: React.FormEvent<HTMLInputElement>) => {
+  const handleContactSubmit = (event: any) => {
     event.preventDefault();
     const inputs = document.querySelectorAll('input');
     const message = document.querySelector('textarea');
