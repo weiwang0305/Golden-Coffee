@@ -1,16 +1,11 @@
 'use client';
+import { MenuItem } from './types';
 
-interface MenuItem {
-  name: string;
-  ingredients: string;
-  price: number;
-}
-
-const MenuView = ({ name, ingredients, price }: MenuItem) => {
+const MenuView = ({ name, description, price }: MenuItem) => {
   return (
     <div>
       <p>{name}</p>
-      <p>{ingredients}</p>
+      <p>{description}</p>
       <p>{price}</p>
     </div>
   );

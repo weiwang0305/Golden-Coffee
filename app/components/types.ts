@@ -8,3 +8,11 @@ export interface Data {
   popular: boolean;
   available: boolean;
 }
+
+export interface MenuItem {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  type: string;
+}

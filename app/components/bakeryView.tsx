@@ -1,12 +1,15 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { MenuItem } from './types';
+import MenuView from './menuView';
 
-const BakeryView = () => {
+const BakeryView = ({ data }: { data: MenuItem[] }) => {
   const [category, setCategory] = useState('pastries');
+  const [currentSelection, setCurrentSelection] = useState(data);
 
   return (
-    <div>
+    <div className='text-center'>
       <div>
         <div>Menu</div>
         <p>
@@ -16,7 +19,18 @@ const BakeryView = () => {
         </p>
       </div>
 
-      <div>{}</div>
+      <div>
+        {currentSelection.map((current, index) => (
+          <MenuView
+            key={current.id}
+            id={current.id}
+            name={current.name}
+            description={current.description}
+            price={current.price}
+            type={current.type}
+          />
+        ))}
+      </div>
     </div>
   );
 };
