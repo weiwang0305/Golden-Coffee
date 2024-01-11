@@ -6,7 +6,8 @@ import MenuView from './menuView';
 
 const BakeryView = ({ data }: { data: MenuItem[] }) => {
   const [category, setCategory] = useState('pastries');
-  const [currentSelection, setCurrentSelection] = useState(data);
+  const [originaldata, setCurrentData] = useState(data);
+  const [currentSelection, setCurrentSelection] = useState(originaldata);
 
   return (
     <div className='text-center'>
