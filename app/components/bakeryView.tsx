@@ -3,12 +3,13 @@
 import { useEffect, useState } from 'react';
 import { MenuItem } from './types';
 import MenuView from './menuView';
+import Image from 'next/image';
 
 const BakeryView = ({ data }: { data: MenuItem[] }) => {
   const [category, setCategory] = useState('pastries');
   const [originaldata, setCurrentData] = useState(data);
   const [currentSelection, setCurrentSelection] = useState(originaldata);
-
+  console.log(currentSelection.sort());
   return (
     <div className='text-center m-auto'>
       <div>
