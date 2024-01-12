@@ -9,8 +9,8 @@ const pacifico = Pacifico({
 });
 
 const ContactPageView = () => {
-  const handleContactSubmit = (event: any) => {
-    event.preventDefault();
+  const handleContactSubmit = (e) => {
+    e.preventDefault();
     const inputs = document.querySelectorAll('input');
     const message = document.querySelector('textarea');
     const result = [];
@@ -45,7 +45,10 @@ const ContactPageView = () => {
       </div>
 
       <div className='w-[800px] h-full m-auto mb-10'>
-        <form className='grid grid-cols-[400px_400px] grid-rows-[20px_20px_360px] gap-7'>
+        <form
+          className='grid grid-cols-[400px_400px] grid-rows-[20px_20px_360px] gap-7'
+          onSubmit={handleContactSubmit}
+        >
           <div className='relative'>
             <input
               className='w-full h-[30px] pl-2 outline-none focus:border-b-2 peer'
@@ -107,7 +110,6 @@ const ContactPageView = () => {
           </div>
           <button
             type='submit'
-            onClick={handleContactSubmit}
             className='border rounded-lg w-[100px] h-[40px] bg-[#22223b] text-white m-0'
           >
             Send Now
