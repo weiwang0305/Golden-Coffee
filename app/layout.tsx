@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={`${CurrentFont.className} bg-[#edf6f9]`}>
-        <div className='flex justify-center text-lg bg-[#22223b] text-gray-200'>
+        <div className='flex justify-center text-lg bg-[#22223b] text-gray-200 p-1'>
           <Link href='/account/register'>
             <span className='tracking-widest'>
               Join the Coffee Club ☕! 50% OFF FIRST ORDER!
@@ -39,10 +39,12 @@ export default function RootLayout({
           </Link>
         </div>
         <div className='flex w-4/5 m-auto align-center justify-between flex-nowrap'>
-          <div className='text-4xl font-black tracking-wider'>
-            <span>Golden Coffee</span>
-          </div>
-          <div>
+          <Link href='/'>
+            <div className='text-4xl font-black tracking-wider p-1'>
+              <span>Golden Coffee</span>
+            </div>
+          </Link>
+          <div className='my-auto'>
             {navigation.map((nav) => (
               <Link
                 className='mr-5 relative group'

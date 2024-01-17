@@ -11,9 +11,9 @@ export interface Data {
 
 export interface MenuItem {
   id: string;
-  name: string;
-  description: string;
-  price: number;
-  type: string;
-  image: string;
+  name: string | null;
+  description: string | null;
+  price: number | null;
+  type: string | null;
+  image: string | null;
 }

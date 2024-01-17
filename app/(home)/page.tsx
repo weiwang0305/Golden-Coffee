@@ -92,7 +92,7 @@ const HomePage = () => {
               <div className='w-[400px] flex justify-center m-auto'>
                 <p>
                   Golden Coffee House is a new independent cafe founded by a
-                  pair of longtime Toronto coffee veterans.
+                  pair of longtime NYC coffee veterans.
                 </p>
               </div>
               <p className='mt-4 hover:bg-slate-200 active:bg-slate-100 cursor-pointer'>
