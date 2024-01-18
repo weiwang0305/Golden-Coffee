@@ -23,7 +23,7 @@ const ContactPageView = () => {
 
   return (
     <div className='w-full h-full'>
-      <div className='w-full h-[700px] relative'>
+      <div className='w-full h-[400px] md:h-[600px] md:w-4/5 md:m-auto relative'>
         <Image
           src={'/contact-page-image.jpg'}
           alt='cafe background'
@@ -34,8 +34,8 @@ const ContactPageView = () => {
       <div className={`${pacifico.className} mt-10 text-4xl text-center`}>
         Visit our place Once.
       </div>
-      <div className='text-center w-[600px] m-auto'>
-        <p className='p-5 mt-5 text-gray-800/[0.6]'>
+      <div className='text-center w-full m-auto'>
+        <p className='p-5 mt-5 text-gray-800/[0.6] text-center md:w-3/5 md:m-auto'>
           Please feel free to contact us via our form below if you have any
           questions or concerns. It is our goal and pleasure to make our
           existing and new customers feel right at home. For quickest answers,
@@ -44,9 +44,9 @@ const ContactPageView = () => {
         </p>
       </div>
 
-      <div className='w-[800px] h-full m-auto mb-10'>
+      <div className='w-full h-full flex justify-center'>
         <form
-          className='grid grid-cols-[400px_400px] grid-rows-[20px_20px_360px] gap-7'
+          className='grid md:grid-cols-[400px_400px] md:grid-rows-[20px_20px_360px] gap-7 grid-cols-[400px] grid-rows-[20px_20px_20px_20px_360px]'
           onSubmit={handleContactSubmit}
         >
           <div className='relative'>
@@ -97,7 +97,7 @@ const ContactPageView = () => {
               Website
             </span>
           </div>
-          <div className='relative col-span-2'>
+          <div className='relative md:col-span-2'>
             <textarea
               className='w-full h-full px-2 outline-none peer resize-none'
               name='message'
@@ -110,7 +110,7 @@ const ContactPageView = () => {
           </div>
           <button
             type='submit'
-            className='border rounded-lg w-[100px] h-[40px] bg-[#22223b] text-white m-0'
+            className='border rounded-lg w-[100px] h-[40px] bg-[#22223b] text-white m-auto'
           >
             Send Now
           </button>

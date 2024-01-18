@@ -49,7 +49,7 @@ const HomePage = () => {
           </p>
         </div>
         <div className='flex-1'>
-          <div className='flex justify-center'>
+          <div className='flex justify-center transform hover:scale-105 transition-all'>
             <Image
               src={'/goldencoffee.jpg'}
               alt='picture of golden coffee'
@@ -64,7 +64,7 @@ const HomePage = () => {
           </p>
         </div>
         <div className='flex-1'>
-          <div className='flex justify-center'>
+          <div className='flex justify-center transform hover:scale-105 transition-all'>
             <Image
               src={'/foodtrucks.jpg'}
               alt='picture of food truck'
