@@ -38,13 +38,15 @@ export default function RootLayout({
             </span>
           </Link>
         </div>
-        <div className='flex w-4/5 m-auto align-center justify-between'>
-          <Link href='/'>
-            <div className='text-4xl font-black tracking-wider p-1'>
-              <span>Golden Coffee</span>
-            </div>
-          </Link>
-          <div className='my-auto'>
+        <div className='flex flex-col w-4/5 m-auto align-center justify-between md:flex-row lg:flex-row'>
+          <div className='w-full'>
+            <Link href='/'>
+              <div className='text-4xl font-black tracking-wider p-1 text-center md:text-left lg:text-left'>
+                <span>Golden Coffee</span>
+              </div>
+            </Link>
+          </div>
+          <div className='flex flex-row w-full items-center gap-3 text-center justify-center'>
             {navigation.map((nav) => (
               <Link
                 className='mr-5 relative group'
