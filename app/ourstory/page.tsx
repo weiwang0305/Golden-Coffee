@@ -2,10 +2,12 @@ import Image from 'next/image';
 
 const OurStoryPage = () => {
   return (
-    <div>
+    <div className='mb-10'>
       <div className='flex justify-center align-middle mt-10 '>
         <div className='flex flex-col w-1/4 my-auto'>
-          <div className='text-xl tracking-widest p-2'>OUR BEGINNING</div>
+          <div className='text-3xl tracking-widest p-2 font-bold'>
+            OUR BEGINNING
+          </div>
           <div className='w-full p-2'>
             <p>
               In the bustling heart of New York City, amidst the towering
@@ -15,6 +17,7 @@ const OurStoryPage = () => {
               of a dynamic duo, both seasoned veterans of the vibrant New York
               coffee scene.
             </p>
+            <br></br>
             <p>
               Having spent years honing their craft in some of the city's most
               iconic coffee establishments, Alex and Mia envisioned Golden
@@ -25,12 +28,11 @@ const OurStoryPage = () => {
             </p>
           </div>
         </div>
-        <div className='w-1/4 my-auto'>
+        <div className='w-1/4 h-[450px] my-auto relative'>
           <Image
-            src={'/mia-picture.jpg'}
-            alt='picture of mia'
-            width={500}
-            height={500}
+            src={'/nyc.jpg'}
+            alt='picture of new york city'
+            fill={true}
             quality={100}
           />
         </div>
@@ -57,15 +59,15 @@ const OurStoryPage = () => {
                 quality={100}
               />
             </div>
-            <div className='w-1/4 px-2 my-auto'>
-              The cafe`&apos`s name, `&quot`Golden Coffee,`&quot` was chosen to
-              reflect the warmth and richness of both the beverage and the
-              inviting atmosphere they aimed to cultivate. The duo meticulously
-              curated a menu featuring a diverse selection of ethically sourced
-              beans, each cup telling a story of its origin. From the robust
-              notes of South American blends to the subtle complexities of
-              African beans, every sip transported customers to the far reaches
-              of the coffee-growing regions.
+            <div className='w-1/4 p-2 my-auto text-lg'>
+              The cafe's name, Golden Coffee, was chosen to reflect the warmth
+              and richness of both the beverage and the inviting atmosphere they
+              aimed to cultivate. The duo meticulously curated a menu featuring
+              a diverse selection of ethically sourced beans, each cup telling a
+              story of its origin. From the robust notes of South American
+              blends to the subtle complexities of African beans, every sip
+              transported customers to the far reaches of the coffee-growing
+              regions.
             </div>
           </div>
         </div>
@@ -77,7 +79,7 @@ const OurStoryPage = () => {
           </div>
         </div>
         <div className='flex w-full justify-center'>
-          <div className='flex w-2/4'>
+          <div className='flex w-2/4 flex-col text-center'>
             The interior of Golden Coffee House was a blend of modern elegance
             and rustic charm. Warm wooden tones, comfortable seating, and soft
             lighting created an inviting ambiance. The walls adorned with local
@@ -91,9 +93,19 @@ const OurStoryPage = () => {
             brews. As the sun set over the city that never sleeps, Golden Coffee
             House continued to be a beacon of warmth, community, and, of course,
             the golden elixir that fueled the dreams and aspirations of its
-            patrons. In the heart of the concrete jungle, Alex and Mia had
-            created a golden oasis where every cup told a story, and every sip
-            was a moment of pure bliss.
+            patrons.
+            <p className='text-center text-2xl tracking-widest p-2 mt-5'>
+              In the heart of the concrete jungle, Alex and Mia had created a
+              golden oasis where every cup told a story, and every sip was a
+              moment of pure bliss.
+            </p>
+            <div className='m-auto w-2/4 h-[300px] relative'>
+              <Image
+                src={'/happy-person-story.jpg'}
+                alt='person smiling'
+                fill={true}
+              />
+            </div>
           </div>
         </div>
       </div>

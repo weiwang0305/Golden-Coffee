@@ -24,15 +24,15 @@ const HomePage = () => {
           className='m-auto'
         />
       </div>
-      <div className='text-4xl flex justify-center align-middle flex-nowrap mt-[100px]'>
+      <div className='text-4xl flex justify-center align-middle flex-nowrap mt-[100px] text-center'>
         Where every coffee taste like
       </div>
       <div className='text-4xl flex justify-center align-middle flex-row'>
         gold.
       </div>
-      <div className='mt-[100px] w-4/5 m-auto flex flex-row gap-5 grow'>
+      <div className='mt-[100px] w-4/5 m-auto flex flex-col gap-5 grow md:flex-row lg:flex-row'>
         <div className='flex-1'>
-          <div className='flex justify-center'>
+          <div className='flex justify-center transform hover:scale-105 transition-all'>
             <Link href='/bakery'>
               <Image
                 src={'/bakery.jpg'}
@@ -81,7 +81,7 @@ const HomePage = () => {
       </div>
 
       <div className='w-full mt-[100px] m-auto bg-[#f2e9e4] p-10'>
-        <div className='flex justify-evenly align-middle'>
+        <div className='flex justify-evenly align-middle flex-col md:flex-row lg:flex-row'>
           <div className='flex flex-col justify-center'>
             <div className='text-center'>
               <p className='text-2xl font-bold p-5'>OUR STORY</p>
@@ -100,7 +100,7 @@ const HomePage = () => {
               </p>
             </div>
           </div>
-          <div>
+          <div className='p-5 sm:m-auto md:mx-0'>
             <Image
               src={'/owner_picture.jpg'}
               alt='Owner picture'
@@ -111,15 +111,15 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div className='bg-[#fffddd2]'>
-        <div className='grid grid-row-3 bg-[#edf6f9]justify-items-center text-center mt-5 bg-[#fffddd2]'>
+      <div className='bg-[#fffddd2] w-full'>
+        <div className='bg-[#edf6f9]justify-items-center text-center mt-5 bg-[#fffddd2]'>
           <h3 className={`${barlow700.className} text-2xl font-bold`}>
             ORGANIC NATURAL INGREDIENTS AND NO PRESERVATIVES
           </h3>
           <p className={`${barlow700.className} text-5xl p-5`}>
             Make People Happy
           </p>
-          <div className='flex p-4 gap-4'>
+          <div className='flex w-full p-4 gap-4 flex-col md:flex-row lg:flex-row'>
             <div className='basis-1/3 p-5 rounded-lg'>
               <div className='h-[160px] w-[300px] overflow-hidden mx-auto'>
                 <Image

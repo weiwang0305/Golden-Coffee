@@ -38,7 +38,7 @@ export default function RootLayout({
             </span>
           </Link>
         </div>
-        <div className='flex w-4/5 m-auto align-center justify-between flex-nowrap'>
+        <div className='flex w-4/5 m-auto align-center justify-between'>
           <Link href='/'>
             <div className='text-4xl font-black tracking-wider p-1'>
               <span>Golden Coffee</span>
@@ -57,8 +57,8 @@ export default function RootLayout({
           </div>
         </div>
         {children}
-        <div className='bg-[#4a4e69] text-[#f2e9e4]'>
-          <div className='flex flex-row p-5 justify-between'>
+        <div className='bg-[#4a4e69] text-[#f2e9e4] sm:flex-wrap'>
+          <div className='flex flex-row p-5 justify-between sm:flex-col'>
             <div className='flex flex-row p-5 gap-10'>
               <div id='location1'>
                 <p>Golden Coffee Cafe @ Java</p>
@@ -101,9 +101,59 @@ export default function RootLayout({
                 <p>10AM - 2PM January 1</p>
               </div>
             </div>
+            <div className='basis-full flex-shrink-0'>
+              <div id='contact'>
+                <div className='flex flex-col'>
+                  <div className='flex flex-row gap-4 justify-center'>
+                    <div>
+                      <Image
+                        src={'/icons8-facebook.svg'}
+                        alt='fb icon'
+                        height={25}
+                        width={25}
+                        className='bg-d'
+                      />
+                    </div>
+                    <div>
+                      <Image
+                        src={'/icons8-instagram.svg'}
+                        alt='instagram icon'
+                        height={25}
+                        width={25}
+                      />
+                    </div>
+                    <div>
+                      <Image
+                        src={'/icons8-tiktok.svg'}
+                        alt='tiktok icon'
+                        height={25}
+                        width={25}
+                      />
+                    </div>
+                    <div>
+                      <Image
+                        src={'/icons8-twitter.svg'}
+                        alt='twitter logo'
+                        height={25}
+                        width={25}
+                        className='grayscale'
+                      />
+                    </div>
+                  </div>
+                  <div className='mt-5 font-semibold text-gray-200'>
+                    <p>Careers</p>
+                    <p>Contact Us</p>
+                    <p>Gift Cards</p>
+                    <p>Loyalty</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* <div className='w-full text-center md:hidden lg:hidden'>
             <div id='contact'>
               <div className='flex flex-col'>
-                <div className='flex flex-row gap-4'>
+                <div className='flex flex-row gap-4 justify-center'>
                   <div>
                     <Image
                       src={'/icons8-facebook.svg'}
@@ -147,7 +197,7 @@ export default function RootLayout({
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </body>
     </html>

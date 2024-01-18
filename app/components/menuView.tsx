@@ -5,7 +5,7 @@ import Image from 'next/image';
 const MenuView = ({ id, name, description, price, type, image }: MenuItem) => {
   return (
     <div className='py-5'>
-      <div className='h-[333px] w-[500px] relative m-auto overflow-hidden'>
+      <div className='h-[333px] w-[450px] relative m-auto overflow-hidden'>
         <Image
           src={`/menu/${image}.jpg`}
           alt={`${name} picture`}
