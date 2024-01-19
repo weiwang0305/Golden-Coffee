@@ -14,8 +14,8 @@ const CoffeeBox = ({ data }: { data: Data }) => {
         />
       </div>
       <div className='flex justify-between mt-3'>
-        <div>{data.name}</div>
-        <div className='bg-[#BEE3CC] text-[#1B1D1F] text-xs flex justify-center items-center p-1 rounded-md'>
+        <div className=''>{data.name}</div>
+        <div className='bg-[#BEE3CC] text-[#1B1D1F] text-sm flex justify-center items-center p-1 rounded-md'>
           {data.price}
         </div>
       </div>
@@ -25,9 +25,10 @@ const CoffeeBox = ({ data }: { data: Data }) => {
           alt='Star-filled image'
           width={20}
           height={25}
+          className='m-0'
         />
         {data.rating}
-        <span className='text-[#6F757C] text-xs flex justify-center items-center'>
+        <span className='text-[#6F757C] text-xs flex justify-center items-center pl-1'>
           ({data.votes} votes)
         </span>
       </div>

@@ -49,7 +49,7 @@ const CoffeeView = () => {
           Available Now
         </button>
       </div>
-      <div className='grid-rows-auto grid-cols-3 grid grid-flow-row gap-x-5 justify-evenly justify-items-center'>
+      <div className='grid-rows-1 grid gap-x-5 justify-evenly justify-items-center '>
         {datas.map((data: Data, index: number) => (
           <CoffeeBox key={index} data={data} />
         ))}
