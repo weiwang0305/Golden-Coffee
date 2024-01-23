@@ -1,18 +1,18 @@
-import Image from 'next/image';
-import Header from './header';
-import CoffeeView from './coffeeView';
+// import Image from 'next/image';
 
-const ReactApp = () => {
-  return (
-    <div className='h-screen w-full'>
-      <div className='relative w-5/6 z-1 m-auto rounded-3xl'>
-        <Header />
-        <div>
-          <CoffeeView />
-        </div>
-      </div>
-    </div>
-  );
-};
+// import CoffeeView from './coffeeView';
 
-export default ReactApp;
+// const ReactApp = () => {
+//   return (
+//     <div className='h-screen w-full'>
+//       <div className='relative w-5/6 z-1 m-auto rounded-3xl'>
+
+//         <div>
+//           <CoffeeView />
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default ReactApp;
