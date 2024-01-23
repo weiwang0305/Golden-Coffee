@@ -35,5 +35,5 @@ model Coffee {
   rating Float
   votes Float
   image String
-
+  type String
 }

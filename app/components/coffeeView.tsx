@@ -2,22 +2,40 @@
 import { useEffect, useState } from 'react';
 import CoffeeBox from './coffeeBox';
 import { DrinkItem } from './types';
+import _ from 'lodash';
 
-const CoffeeView = ({ data }: { data: DrinkItem[] }) => {
-  const [originaldata, setOriginalData] = useState(data);
-  const [currentSelection, setCurrentSelection] = useState(originaldata);
+const CoffeeView = ({
+  classicdata,
+  seasonaldata,
+}: {
+  classicdata: DrinkItem[];
+  seasonaldata: DrinkItem[];
+}) => {
+  const [currentSelection, setCurrentSelection] = useState(classicdata);
 
-  console.log(currentSelection);
   return (
     <div>
+      <div className='text-center m-auto'>
+        <div>
+          <div className='text-4xl p-5'>Our Collection</div>
+          <p className='w-[400px] mx-auto my-5'>
+            Introducing our Coffee Collection, a selection of unique coffees
+            from different roasst types and origins, expertly roasted in small
+            batches and shipped fresh weekly.
+          </p>
+        </div>
+      </div>
       <div className='flex justify-center'>
         <button
           className='border rounded-md mt-2 mr-4 p-2 mb-8 hover:bg-gray-700'
-          onClick={() => setCurrentSelection(originaldata)}
+          onClick={() => setCurrentSelection(classicdata)}
         >
           All Products
         </button>
-        <button className='border rounded-md mt-2 ml-4 p-2 mb-8 hover:bg-gray-700'>
+        <button
+          className='border rounded-md mt-2 ml-4 p-2 mb-8 hover:bg-gray-700'
+          onClick={() => setCurrentSelection(seasonaldata)}
+        >
           Available Now
         </button>
       </div>
@@ -34,6 +52,7 @@ const CoffeeView = ({ data }: { data: DrinkItem[] }) => {
             rating={currentdata.rating}
             votes={currentdata.votes}
             image={currentdata.image}
+            type={currentdata.type}
           />
         ))}
       </div>

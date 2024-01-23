@@ -28,4 +28,5 @@ export interface DrinkItem {
   rating: number;
   votes: number;
   image: string;
+  type: string;
 }

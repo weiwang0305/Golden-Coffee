@@ -11,6 +11,7 @@ const CoffeeBox = ({
   rating,
   votes,
   image,
+  type,
 }: DrinkItem) => {
   console.log(
     id,
@@ -21,7 +22,8 @@ const CoffeeBox = ({
     coldlgprice,
     rating,
     votes,
-    image
+    image,
+    type
   );
   return (
     <div className='mb-10 text-center'>
