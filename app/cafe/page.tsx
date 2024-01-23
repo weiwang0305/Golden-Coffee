@@ -1,6 +1,14 @@
 import CoffeeView from '../components/coffeeView';
+import prisma from '@/lib/prisma';
 
-const CafePage = () => {
+const CafePage = async () => {
+  const data = await prisma.coffee.findMany({
+    orderBy: [
+      {
+        name: 'desc',
+      },
+    ],
+  });
   return (
     <div className='h-full w-full'>
       <div className='relative w-5/6 z-1 m-auto rounded-3xl'>
@@ -15,7 +23,7 @@ const CafePage = () => {
           </div>
         </div>
         <div>
-          <CoffeeView />
+          <CoffeeView data={data} />
         </div>
       </div>
     </div>

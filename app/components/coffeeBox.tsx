@@ -1,25 +1,47 @@
-import { Data } from './types';
 import Image from 'next/image';
+import { DrinkItem } from './types';
 
-const CoffeeBox = ({ data }: { data: Data }) => {
+const CoffeeBox = ({
+  id,
+  name,
+  description,
+  hotprice,
+  coldsmprice,
+  coldlgprice,
+  rating,
+  votes,
+  image,
+}: DrinkItem) => {
+  console.log(
+    id,
+    name,
+    description,
+    hotprice,
+    coldsmprice,
+    coldlgprice,
+    rating,
+    votes,
+    image
+  );
   return (
-    <div className='mb-10'>
+    <div className='mb-10 text-center'>
       <div className='flex justify-center rounded-md'>
         <Image
-          className='rounded-md w-[250px] h-[175px]'
-          src={data.image}
-          alt='Coffee Image'
-          width={250}
-          height={175}
+          className='rounded-md w-[450px] h-[333px]'
+          src={`/coffee/${image}.jpg`}
+          alt={`${name} picture`}
+          width={500}
+          height={400}
         />
       </div>
-      <div className='flex justify-between mt-3'>
-        <div className=''>{data.name}</div>
-        <div className='bg-[#BEE3CC] text-[#1B1D1F] text-sm flex justify-center items-center p-1 rounded-md'>
-          {data.price}
-        </div>
-      </div>
-      <div className='flex flex-start'>
+
+      <p className='text-xl font-bold tracking-wider'>{name}</p>
+      <p className='text-base font-light tracking-wider'>{description}</p>
+      <p className='text-lg font-bold tracking-wide p-2'>
+        H: {hotprice} C:{coldsmprice}/{coldlgprice}
+      </p>
+
+      <div className='flex justify-center align-middle'>
         <Image
           src={'/Star_fill.svg'}
           alt='Star-filled image'
@@ -27,11 +49,12 @@ const CoffeeBox = ({ data }: { data: Data }) => {
           height={25}
           className='m-0'
         />
-        {data.rating}
-        <span className='text-[#6F757C] text-xs flex justify-center items-center pl-1'>
-          ({data.votes} votes)
-        </span>
+        <span className='items-center'></span>
+        {rating}
       </div>
+      <span className='text-[#6F757C] text-xs flex justify-center pl-1 items-end'>
+        ({votes} votes)
+      </span>
     </div>
   );
 };
