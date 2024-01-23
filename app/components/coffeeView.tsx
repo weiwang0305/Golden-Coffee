@@ -30,13 +30,13 @@ const CoffeeView = ({
           className='border rounded-md mt-2 mr-4 p-2 mb-8 hover:bg-gray-700'
           onClick={() => setCurrentSelection(classicdata)}
         >
-          All Products
+          Classic
         </button>
         <button
           className='border rounded-md mt-2 ml-4 p-2 mb-8 hover:bg-gray-700'
           onClick={() => setCurrentSelection(seasonaldata)}
         >
-          Available Now
+          Seasonal
         </button>
       </div>
       <div className='grid-rows-1 grid gap-x-5 justify-evenly justify-items-center '>

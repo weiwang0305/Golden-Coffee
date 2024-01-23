@@ -29,7 +29,7 @@ const CoffeeBox = ({
     <div className='mb-10 text-center'>
       <div className='flex justify-center rounded-md'>
         <Image
-          className='rounded-md w-[450px] h-[333px]'
+          className='rounded-md w-[450px] h-[333px] relative'
           src={`/coffee/${image}.jpg`}
           alt={`${name} picture`}
           width={500}
