@@ -126,10 +126,18 @@ export default function RootLayout({
                     </div>
                   </div>
                   <div className='p-5 font-semibold text-gray-200 text-center'>
-                    <p>Careers</p>
-                    <p>Contact Us</p>
-                    <p>Gift Cards</p>
-                    <p>Loyalty</p>
+                    <p>
+                      <Link href='/careers'>Careers</Link>
+                    </p>
+                    <p>
+                      <Link href='/contact'>Contact Us</Link>
+                    </p>
+                    <p>
+                      <Link href='/giftcards'>Gift Cards</Link>
+                    </p>
+                    <p>
+                      <Link href='/loyalty'>Loyalty</Link>
+                    </p>
                   </div>
                 </div>
               </div>
