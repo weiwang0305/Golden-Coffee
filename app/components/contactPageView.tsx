@@ -110,7 +110,7 @@ const ContactPageView = () => {
           </div>
           <button
             type='submit'
-            className='border rounded-lg w-[100px] h-[40px] bg-[#22223b] text-white m-auto'
+            className='border rounded-lg w-[100px] h-[40px] bg-[#22223b] text-white m-auto md:m-0 lg:m-0'
           >
             Send Now
           </button>

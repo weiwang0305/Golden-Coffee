@@ -11,10 +11,10 @@ const CurrentFont = Barlow({
 
 const navigation = [
   { href: '/', label: 'Home' },
-  { href: '/bakery', label: 'The Bakery' },
-  { href: '/cafe', label: 'The Cafe' },
+  { href: '/bakery', label: 'Bakery' },
+  { href: '/cafe', label: 'Cafe' },
   { href: '/local', label: 'Little Local' },
-  { href: '/foodtruck', label: 'The Food Truck' },
+  { href: '/foodtruck', label: 'Food Truck' },
   { href: '/contact', label: 'Contact' },
 ];
 
@@ -46,7 +46,7 @@ export default function RootLayout({
               </div>
             </Link>
           </div>
-          <div className='flex flex-row w-full items-center gap-3 text-center justify-center'>
+          <div className='flex flex-row w-full items-center gap-5 text-center justify-center'>
             {navigation.map((nav) => (
               <Link className='relative group' key={nav.label} href={nav.href}>
                 {nav.label}
