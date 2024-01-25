@@ -4,7 +4,7 @@ const OurStoryPage = () => {
   return (
     <div className='mb-10 md:w-4/5 md:m-auto'>
       <div className='flex justify-center align-middle mt-10 flex-col md:flex-row md:w- '>
-        <div className='flex flex-col w-full my-auto'>
+        <div className='flex flex-col w-full my-auto bg-slate-300 h-[400px]'>
           <div className='text-3xl tracking-widest p-2 font-bold'>
             OUR BEGINNING
           </div>
@@ -19,7 +19,7 @@ const OurStoryPage = () => {
             </p>
             <br></br>
             <p>
-              Having spent years honing their craft in some of the city`&apos;`s
+              Having spent years honing their craft in some of the city&apos;s
               most iconic coffee establishments, Alex and Mia envisioned Golden
               Coffee House as a sanctuary for those who appreciate the nuanced
               flavors of a perfectly brewed cup. Their expertise was not only in
@@ -56,7 +56,7 @@ const OurStoryPage = () => {
         </div>
         <div className='flex flex-col'>
           <div className='flex justify-center align-middle'>
-            <div className='w-1/2 min-h-[500px] max-h-[600px] relative '>
+            <div className='w-1/2 min-h-[400px] max-h-[600px] relative '>
               <Image
                 src={'/coffee-pic-copy.jpg'}
                 alt='coffee picture'
@@ -67,8 +67,8 @@ const OurStoryPage = () => {
                 className='hover:opacity-75'
               />
             </div>
-            <div className='w-1/2 p-2 my-auto text-lg'>
-              The cafe`&apos;`s name, Golden Coffee, was chosen to reflect the
+            <div className='flex items-center w-1/2 p-1 my-auto bg-slate-300 min-h-[400px] max-h-[600px] text-wrap'>
+              The cafe&apos;s name, Golden Coffee, was chosen to reflect the
               warmth and richness of both the beverage and the inviting
               atmosphere they aimed to cultivate. The duo meticulously curated a
               menu featuring a diverse selection of ethically sourced beans,
@@ -96,20 +96,22 @@ const OurStoryPage = () => {
         </div>
         <div className='flex w-full justify-center'>
           <div className='flex w-full flex-col text-center'>
-            The interior of Golden Coffee House was a blend of modern elegance
-            and rustic charm. Warm wooden tones, comfortable seating, and soft
-            lighting created an inviting ambiance. The walls adorned with local
-            artwork and photographs told the tales of the city they called home.
-            Golden Coffee House quickly became a gathering place for the diverse
-            tapestry of New Yorkers. Business professionals found solace in a
-            quiet corner to catch up on emails, artists sought inspiration over
-            a latte, and friends reunited over shared pots of specialty blends.
-            Alex and Mia`&apos;`s cafe became a microcosm of the city`&apos;`s
-            vibrant energy—a place where conversations flowed as freely as the
-            aromatic brews. As the sun set over the city that never sleeps,
-            Golden Coffee House continued to be a beacon of warmth, community,
-            and, of course, the golden elixir that fueled the dreams and
-            aspirations of its patrons.
+            <div className='bg-slate-300'>
+              The interior of Golden Coffee House was a blend of modern elegance
+              and rustic charm. Warm wooden tones, comfortable seating, and soft
+              lighting created an inviting ambiance. The walls adorned with
+              local artwork and photographs told the tales of the city they
+              called home. Golden Coffee House quickly became a gathering place
+              for the diverse tapestry of New Yorkers. Business professionals
+              found solace in a quiet corner to catch up on emails, artists
+              sought inspiration over a latte, and friends reunited over shared
+              pots of specialty blends. Alex and Mia&apos;s cafe became a
+              microcosm of the city&apos;s vibrant energy—a place where
+              conversations flowed as freely as the aromatic brews. As the sun
+              set over the city that never sleeps, Golden Coffee House continued
+              to be a beacon of warmth, community, and, of course, the golden
+              elixir that fueled the dreams and aspirations of its patrons.
+            </div>
             <p className='text-center text-2xl tracking-widest p-2 mt-5'>
               In the heart of the concrete jungle, Alex and Mia had created a
               golden oasis where every cup told a story, and every sip was a
