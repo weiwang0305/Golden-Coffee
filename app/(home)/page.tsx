@@ -50,12 +50,14 @@ const HomePage = () => {
         </div>
         <div className='flex-1'>
           <div className='flex justify-center transform hover:scale-105 transition-all'>
-            <Image
-              src={'/goldencoffee.jpg'}
-              alt='picture of golden coffee'
-              width={300}
-              height={300}
-            />
+            <Link href='/cafe'>
+              <Image
+                src={'/goldencoffee.jpg'}
+                alt='picture of golden coffee'
+                width={300}
+                height={300}
+              />
+            </Link>
           </div>
           <p className='text-center text-2xl p-1'>The Cafe</p>
           <p className='text-center text-l flex-wrap p-3'>
@@ -65,12 +67,14 @@ const HomePage = () => {
         </div>
         <div className='flex-1'>
           <div className='flex justify-center transform hover:scale-105 transition-all'>
-            <Image
-              src={'/foodtrucks.jpg'}
-              alt='picture of food truck'
-              width={300}
-              height={300}
-            />
+            <Link href='/foodtruck'>
+              <Image
+                src={'/foodtrucks.jpg'}
+                alt='picture of food truck'
+                width={300}
+                height={300}
+              />
+            </Link>
           </div>
           <p className='text-center text-2xl p-1'>The Food Truck</p>
           <p className='text-center text-l flex-wrap p-3'>
