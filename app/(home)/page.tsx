@@ -120,22 +120,22 @@ const HomePage = () => {
       </div>
 
       <div className='bg-[#fffddd2] w-full'>
-        <div className='bg-[#edf6f9]justify-items-center text-center mt-5 bg-[#fffddd2]'>
+        <div className='bg-[#edf6f9]justify-items-center text-center mt-5 bg-[#fffddd2] flex-wrap'>
           <h3 className={`${barlow700.className} text-2xl font-bold`}>
             ORGANIC NATURAL INGREDIENTS AND NO PRESERVATIVES
           </h3>
           <p className={`${barlow700.className} text-5xl p-5`}>
             Make People Happy
           </p>
-          <div className='flex w-full p-4 gap-4 flex-col md:flex-row lg:flex-row'>
+          <div className='flex w-full p-4 flex-col md:flex-row lg:flex-row'>
             <div className='basis-1/3 p-5 rounded-lg'>
-              <div className='h-[160px] w-[300px] overflow-hidden mx-auto'>
+              <div className='h-[160px] w-full overflow-hidden mx-auto'>
                 <Image
                   src={'/ethicallysourced.jpg'}
                   alt='Ethically sourced coffee'
                   height={180}
                   width={300}
-                  className='rounded-lg'
+                  className='rounded-lg m-auto'
                 />
               </div>
               <p className={`${barlow600.className} text-xl p-2 font-bold`}>
@@ -150,13 +150,13 @@ const HomePage = () => {
               </p>
             </div>
             <div className='basis-1/3 p-5 rounded-lg'>
-              <div className='h-[160px] w-[300px] overflow-hidden mx-auto'>
+              <div className='h-[160px] w-full overflow-hidden mx-auto'>
                 <Image
                   src={'/coffee-beans.jpg'}
                   alt='Coffee Beans'
                   height={300}
                   width={300}
-                  className='rounded-lg'
+                  className='rounded-lg m-auto'
                 />
               </div>
               <p className={`${barlow600.className} text-xl p-2 font-bold`}>
@@ -171,13 +171,13 @@ const HomePage = () => {
               </p>
             </div>
             <div className='basis-1/3 p-5 rounded-lg'>
-              <div className='h-[160px] w-[300px] overflow-hidden mx-auto'>
+              <div className='h-[160px] w-full overflow-hidden mx-auto'>
                 <Image
                   src={'/happyperson.jpg'}
                   alt='Happy person drinking coffee'
                   height={300}
                   width={300}
-                  className='rounded-lg'
+                  className='rounded-lg m-auto'
                 />
               </div>
               <p className={`${barlow600.className} text-xl p-2 font-bold`}>
