@@ -89,7 +89,7 @@ const HomePage = () => {
                 About Golden Coffee Cafe
               </p>
               <p className='font-extrabold text-3xl mb-3'>...</p>
-              <div className='w-[400px] flex justify-center m-auto'>
+              <div className='w-3/4 flex justify-center m-auto'>
                 <p>
                   Golden Coffee House is a new independent cafe founded by a
                   pair of longtime NYC coffee veterans.

@@ -14,7 +14,7 @@ const BakeryView = ({ data }: { data: MenuItem[] }) => {
     <div className='text-center m-auto'>
       <div>
         <div className='text-4xl p-5'>Menu</div>
-        <p className='w-[400px] mx-auto my-5'>
+        <p className='w-2/4 mx-auto my-5'>
           Please ask about modifying items for dietary restrictions and
           allergies. Many items can be made gluten or dairy free, vegan or
           vegetarian upon request.

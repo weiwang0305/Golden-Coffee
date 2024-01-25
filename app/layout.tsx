@@ -29,9 +29,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en'>
+    <html lang='en' className='w-screen m-0 p-0 overflow-x-hidden'>
       <body className={`${CurrentFont.className} bg-[#edf6f9]`}>
-        <div className='flex justify-center text-lg bg-[#22223b] text-gray-200 p-1'>
+        <div className='flex justify-center text-lg bg-[#22223b] text-gray-200 p-1 text-center'>
           <Link href='/account/register'>
             <span className='tracking-widest'>
               Join the Coffee Club ☕! 50% OFF FIRST ORDER!
@@ -48,11 +48,7 @@ export default function RootLayout({
           </div>
           <div className='flex flex-row w-full items-center gap-3 text-center justify-center'>
             {navigation.map((nav) => (
-              <Link
-                className='mr-5 relative group'
-                key={nav.label}
-                href={nav.href}
-              >
+              <Link className='relative group' key={nav.label} href={nav.href}>
                 {nav.label}
               </Link>
             ))}
@@ -61,26 +57,13 @@ export default function RootLayout({
         {children}
         <div className='bg-[#4a4e69] text-[#f2e9e4]'>
           <div className='flex flex-col p-5 justify-between md:flex-row lg:flex-row'>
-            <div className='flex flex-row p-5 gap-10'>
+            <div className='flex flex-row p-5 gap-10 flex-wrap'>
               <div id='location1'>
                 <p>Golden Coffee Cafe @ Java</p>
                 <p>123 Java Street</p>
                 <p>Brewville, CO</p>
                 <p>80123</p>
                 <p>(555)-123-4567</p>
-              </div>
-              <div>
-                <h2>Hours</h2>
-                <p>Everyday</p>
-                <p>7AM - 4PM</p>
-                <h2>Holiday Hours</h2>
-                <p>8AM - 3PM December 23</p>
-                <p>8AM - 3PM December 24</p>
-                <p>CLOSED December 25 - December 28</p>
-                <p>8AM - 3PM December 29</p>
-                <p>8AM - 3PM December 30</p>
-                <p>8AM - 3PM December 31</p>
-                <p>10AM - 2PM January 1</p>
               </div>
               <div id='location2'>
                 <p>Golden Coffee Cafe @ Espresso</p>
