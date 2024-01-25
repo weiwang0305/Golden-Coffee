@@ -39,6 +39,7 @@ const HomePage = () => {
                 alt='bakehouse'
                 width={300}
                 height={300}
+                className='rounded-lg'
               />
             </Link>
           </div>
@@ -56,6 +57,7 @@ const HomePage = () => {
                 alt='picture of golden coffee'
                 width={300}
                 height={300}
+                className='rounded-lg'
               />
             </Link>
           </div>
@@ -73,6 +75,7 @@ const HomePage = () => {
                 alt='picture of food truck'
                 width={300}
                 height={300}
+                className='rounded-lg'
               />
             </Link>
           </div>
@@ -110,6 +113,7 @@ const HomePage = () => {
               alt='Owner picture'
               width={400}
               height={400}
+              className='rounded-lg'
             />
           </div>
         </div>
@@ -131,6 +135,7 @@ const HomePage = () => {
                   alt='Ethically sourced coffee'
                   height={180}
                   width={300}
+                  className='rounded-lg'
                 />
               </div>
               <p className={`${barlow600.className} text-xl p-2 font-bold`}>
@@ -151,6 +156,7 @@ const HomePage = () => {
                   alt='Coffee Beans'
                   height={300}
                   width={300}
+                  className='rounded-lg'
                 />
               </div>
               <p className={`${barlow600.className} text-xl p-2 font-bold`}>
@@ -171,7 +177,7 @@ const HomePage = () => {
                   alt='Happy person drinking coffee'
                   height={300}
                   width={300}
-                  className='mx-auto'
+                  className='rounded-lg'
                 />
               </div>
               <p className={`${barlow600.className} text-xl p-2 font-bold`}>
