@@ -46,7 +46,7 @@ export default function RootLayout({
               </div>
             </Link>
           </div>
-          <div className='flex flex-row w-full items-center gap-5 text-center justify-center'>
+          <div className='flex w-full gap-5 text-center justify-end flex-col md:flex-row md:justify-center'>
             {navigation.map((nav) => (
               <Link className='relative group' key={nav.label} href={nav.href}>
                 {nav.label}
