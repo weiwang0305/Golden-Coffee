@@ -2,9 +2,9 @@ import Image from 'next/image';
 
 const OurStoryPage = () => {
   return (
-    <div className='mb-10'>
-      <div className='flex justify-center align-middle mt-10 '>
-        <div className='flex flex-col w-1/4 my-auto'>
+    <div className='mb-10 md:w-4/5 md:m-auto'>
+      <div className='flex justify-center align-middle mt-10 flex-col md:flex-row md:w- '>
+        <div className='flex flex-col w-full my-auto'>
           <div className='text-3xl tracking-widest p-2 font-bold'>
             OUR BEGINNING
           </div>
@@ -28,38 +28,46 @@ const OurStoryPage = () => {
             </p>
           </div>
         </div>
-        <div className='w-1/4 h-[450px] my-auto relative'>
+        <div className='w-full h-[400px] my-auto relative overflow-hidden'>
           <Image
             src={'/nyc.jpg'}
             alt='picture of new york city'
-            fill={true}
+            fill
+            sizes='(min-width: 780px) 40vw, 100vw'
             quality={100}
+            className='object-cover hover:opacity-75'
           />
         </div>
       </div>
-      <div className=''>
+      <div>
         <div className='flex justify-center align-middle'>
-          <div className='w-2/4 h-[400px] relative'>
+          <div className='w-full min-h-[500px] max-h-[600px] relative'>
             <Image
               src={'/brewing-coffee2.jpg'}
               alt='brewing'
-              fill={true}
+              fill
+              sizes='(min-width: 780px) 80vw, 100vw'
+              objectFit='cover'
               priority
               quality={100}
+              className='hover:opacity-75'
             />
           </div>
         </div>
         <div className='flex flex-col'>
           <div className='flex justify-center align-middle'>
-            <div className='w-1/4 h-[400px] relative '>
+            <div className='w-1/2 min-h-[500px] max-h-[600px] relative '>
               <Image
                 src={'/coffee-pic-copy.jpg'}
                 alt='coffee picture'
-                fill={true}
+                fill
+                sizes='(min-width: 780px) 40vw, 50vw'
+                objectFit='cover'
                 quality={100}
+                className='hover:opacity-75'
               />
             </div>
-            <div className='w-1/4 p-2 my-auto text-lg'>
+            <div className='w-1/2 p-2 my-auto text-lg'>
               The cafe`&apos;`s name, Golden Coffee, was chosen to reflect the
               warmth and richness of both the beverage and the inviting
               atmosphere they aimed to cultivate. The duo meticulously curated a
@@ -74,12 +82,20 @@ const OurStoryPage = () => {
       </div>
       <div>
         <div className='flex w-full justify-center'>
-          <div className='h-[400px] w-2/4 relative'>
-            <Image src={'/warm-cafe.jpg'} alt='warm cafe picture' fill={true} />
+          <div className='min-h-[500px] w-full relative'>
+            <Image
+              src={'/warm-cafe.jpg'}
+              alt='warm cafe picture'
+              fill
+              sizes='(min-width: 780px) 80vw, 100vw'
+              objectFit='cover'
+              quality={100}
+              className='hover:opacity-75'
+            />
           </div>
         </div>
         <div className='flex w-full justify-center'>
-          <div className='flex w-2/4 flex-col text-center'>
+          <div className='flex w-full flex-col text-center'>
             The interior of Golden Coffee House was a blend of modern elegance
             and rustic charm. Warm wooden tones, comfortable seating, and soft
             lighting created an inviting ambiance. The walls adorned with local
@@ -99,11 +115,15 @@ const OurStoryPage = () => {
               golden oasis where every cup told a story, and every sip was a
               moment of pure bliss.
             </p>
-            <div className='m-auto w-2/4 h-[300px] relative'>
+            <div className='m-auto w-3/4 min-h-[500px] relative'>
               <Image
                 src={'/happy-person-story.jpg'}
                 alt='person smiling'
-                fill={true}
+                fill
+                sizes='(min-width: 780px) 60vw, 75vw'
+                objectFit='cover'
+                quality={100}
+                className='hover:opacity-75'
               />
             </div>
           </div>

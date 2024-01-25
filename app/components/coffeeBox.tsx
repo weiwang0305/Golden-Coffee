@@ -27,13 +27,14 @@ const CoffeeBox = ({
   );
   return (
     <div className='mb-10 text-center'>
-      <div className='flex justify-center rounded-md'>
+      <div className='h-[333px] w-4/5 relative m-auto max-w-[450px] overflow-hidden'>
         <Image
-          className='rounded-md w-[450px] h-[333px] relative'
           src={`/coffee/${image}.jpg`}
           alt={`${name} picture`}
-          width={500}
-          height={400}
+          fill
+          sizes='100vw'
+          quality={100}
+          objectFit='cover'
         />
       </div>
 
