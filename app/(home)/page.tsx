@@ -25,10 +25,10 @@ const HomePage = () => {
         />
       </div>
       <div className='text-4xl flex justify-center align-middle flex-nowrap mt-[100px] text-center'>
-        Where every coffee taste like
+        WHERE EVERY COFFEE TASTE LIKE
       </div>
       <div className='text-4xl flex justify-center align-middle flex-row'>
-        gold.
+        GOLD.
       </div>
       <div className='mt-[100px] w-4/5 m-auto flex flex-col gap-5 grow md:flex-row lg:flex-row'>
         <div className='flex-1'>
