@@ -1,4 +1,4 @@
-import BakeryView from '../components/bakeryView';
+import BakeryView from '../../components/bakeryView';
 import prisma from '@/lib/prisma';
 
 const BakeryPage = async () => {

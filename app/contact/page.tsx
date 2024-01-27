@@ -1,4 +1,4 @@
-import ContactPageView from '../components/contactPageView';
+import ContactPageView from '../../components/contactPageView';
 
 const ContactPage = () => {
   return <ContactPageView />;

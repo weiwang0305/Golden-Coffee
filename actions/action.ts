@@ -1,5 +1,4 @@
 'use server';
 
-export const register = (values: any) => {
-  console.log(values);
-};
+import * as z from 'zod';
+import bcrypt from 'bcrypt';

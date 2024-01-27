@@ -1,4 +1,4 @@
-import CoffeeView from '../components/coffeeView';
+import CoffeeView from '../../components/coffeeView';
 import prisma from '@/lib/prisma';
 
 const CafePage = async () => {

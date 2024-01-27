@@ -1,22 +1,43 @@
 'use client';
 
-import { register } from '@/actions/action';
+import * as z from 'zod';
+import { LoginSchema } from '@/schemas';
+import { Login } from '@/actions/action';
 import bcrypt from 'bcrypt';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '../ui/form';
+import { Input } from '../ui/input';
+import { Button } from '../ui/button';
+import { FormError } from '../form-error';
+import { FormSuccess } from '../form-success';
 
 export const SignupForm = () => {
-  const onSubmit = (e: any) => {
-    e.preventDefault();
-    const data = new FormData(e.target);
-    const entries = Object.fromEntries(data.entries());
-    console.log(entries);
+  const onSubmit = (values: z.infer<typeof LoginSchema>) => {
+    console.log(values);
   };
+
+  const form = useForm<z.infer<typeof LoginSchema>>({
+    resolver: zodResolver(LoginSchema),
+    defaultValues: {
+      email: '',
+      password: '',
+    },
+  });
 
   return (
     <div className='w-full h-full'>
       <div className='flex justify-center p-5 mt-10'>
-        <form
+        {/* <form
           className='flex flex-col m-auto gap-5 px-20 py-5 w-[500px]'
-          onSubmit={onSubmit}
+          onSubmit={form.handleSubmit(() => {})}
         >
           <div className='text-center font-bold text-4xl'>Create account</div>
           <div className='relative'>
@@ -82,7 +103,49 @@ export const SignupForm = () => {
           >
             Create
           </button>
-        </form>
+        </form> */}
+
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6'>
+            <div className='space-y-4'>
+              <FormField
+                control={form.control}
+                name='email'
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Email</FormLabel>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        placeholder='john.doe@example.com'
+                        type='email'
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name='password'
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Password</FormLabel>
+                    <FormControl>
+                      <Input {...field} placeholder='******' type='password' />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <FormError message='' />
+            <FormSuccess message='' />
+            <Button type='submit' className='w-full'>
+              Login
+            </Button>
+          </form>
+        </Form>
       </div>
     </div>
   );
