@@ -1,4 +1,6 @@
-const SignUpPage = () => {
-  return <SignupForm />;
+import { RegisterForm } from '@/components/auth/RegisterForm';
+
+const RegisterPage = () => {
+  return <RegisterForm />;
 };
-export default SignUpPage;
+export default RegisterPage;
