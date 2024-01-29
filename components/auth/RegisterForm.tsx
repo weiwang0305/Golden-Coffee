@@ -2,7 +2,7 @@
 
 import * as z from 'zod';
 import { RegisterSchema } from '@/schemas';
-import { login } from '@/actions/action';
+import { login } from '@/actions/login';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState, useTransition } from 'react';
@@ -125,7 +125,7 @@ export const RegisterForm = () => {
             <FormError message={error} />
             <FormSuccess message={success} />
             <Button type='submit' className='w-full disabled={isPending}'>
-              Sign up
+              Create an account
             </Button>
           </form>
         </Form>

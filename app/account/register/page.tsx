@@ -5,9 +5,9 @@ const RegisterPage = () => {
   return (
     <div className='flex justify-center'>
       <CardWrapper
-        headerLabel='Welcome back'
-        backButtonLabel="Don't have an account?"
-        backButtonHref='/account/register'
+        headerLabel='Create an account'
+        backButtonLabel='Already have an account?'
+        backButtonHref='/account/login'
         showSocial
       >
         <RegisterForm />
