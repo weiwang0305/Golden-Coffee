@@ -3,15 +3,6 @@ import authConfig from './auth.config';
 import { PrismaAdapter } from '@auth/prisma-adapter';
 import prisma from './lib/prisma';
 import { getUserById } from './lib/user';
-import { Session } from 'inspector';
-
-declare module 'next-auth' {
-  interface Session {
-    user: {
-      role: 'ADMIN' | 'USER';
-    } & DefaultSession['user'];
-  }
-}
 
 export const {
   handlers: { GET, POST },
