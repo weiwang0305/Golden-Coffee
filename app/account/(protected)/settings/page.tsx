@@ -1,4 +1,5 @@
 import { auth } from '@/auth';
+import { signOut } from '@/auth';
 
 const SettingsPage = async () => {
   const session = await auth();
@@ -7,6 +8,14 @@ const SettingsPage = async () => {
       {' '}
       Settings Page
       {JSON.stringify(session)}
+      <form
+        action={async () => {
+          'use server';
+          await signOut();
+        }}
+      >
+        <button type='submit'>Sign out</button>
+      </form>
     </div>
   );
 };
