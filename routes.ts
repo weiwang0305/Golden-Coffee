@@ -19,7 +19,11 @@ export const publicRoutes = [
  * These routes will redirect logged in users to /settings
  * @type {string[]}
  */
-export const authRoutes = ['/account/login', '/account/register'];
+export const authRoutes = [
+  '/account/login',
+  '/account/register',
+  '/account/error',
+];
 
 /**
  * The prefix for API auhentication routes
