@@ -10,6 +10,10 @@ export const {
   signIn,
   signOut,
 } = NextAuth({
+  pages: {
+    signIn: '/account/login',
+    error: '/account/error',
+  },
   callbacks: {
     async session({ session, token }) {
       console.log({
@@ -34,6 +38,14 @@ export const {
       }
       token.role = existingUser.role;
       return token;
+    },
+  },
+  events: {
+    async linkAccount({ user }) {
+      await prisma.user.update({
+        where: { id: user.id },
+        data: { emailVerified: new Date() },
+      });
     },
   },
   adapter: PrismaAdapter(prisma),

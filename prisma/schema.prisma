@@ -67,8 +67,7 @@ enum UserRole {
 
 model User {
   id            String    @id @default(cuid())
-  firstname          String?
-  lastname String?
+  name         String?
   email         String?   @unique
   emailVerified DateTime?
   image         String?
