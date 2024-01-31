@@ -13,6 +13,7 @@ export const publicRoutes = [
   '/ourstory',
   '/cafe',
   '/account/new-verification',
+  '/account/new-password',
 ];
 
 /**
