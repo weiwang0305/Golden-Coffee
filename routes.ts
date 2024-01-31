@@ -23,6 +23,7 @@ export const authRoutes = [
   '/account/login',
   '/account/register',
   '/account/error',
+  '/account/new-verification',
 ];
 
 /**
