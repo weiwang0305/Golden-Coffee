@@ -12,6 +12,7 @@ export const publicRoutes = [
   '/local',
   '/ourstory',
   '/cafe',
+  '/account/new-verification',
 ];
 
 /**
@@ -23,7 +24,6 @@ export const authRoutes = [
   '/account/login',
   '/account/register',
   '/account/error',
-  '/account/new-verification',
 ];
 
 /**
