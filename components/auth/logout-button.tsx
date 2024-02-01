@@ -6,7 +6,7 @@ interface LogoutButtonProps {
   children?: React.ReactNode;
 }
 
-export const logoutButton = ({ children }: LogoutButtonProps) => {
+export const LogoutButton = ({ children }: LogoutButtonProps) => {
   const handleLogout = () => {
     logout();
   };

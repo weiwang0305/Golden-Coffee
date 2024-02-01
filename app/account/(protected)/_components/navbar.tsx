@@ -1,9 +1,11 @@
 'use client';
+
+import { UserButton } from '@/components/auth/user-button';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-export const NavBar = () => {
+const NavBar = () => {
   const pathname = usePathname();
   return (
     <nav className='bg-secondary flex justify-between items-center p-4 rounded-xl w-[600px] shadow-sm'>
@@ -15,7 +17,9 @@ export const NavBar = () => {
           <Link href='/settings'>Settings</Link>
         </Button>
       </div>
-      <p>User Button</p>
+      <UserButton />
     </nav>
   );
 };
+
+export default NavBar;
