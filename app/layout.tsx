@@ -15,8 +15,6 @@ const navigation = [
   { href: '/', label: 'Home' },
   { href: '/bakery', label: 'Bakery' },
   { href: '/cafe', label: 'Cafe' },
-  { href: '/local', label: 'Little Local' },
-  { href: '/foodtruck', label: 'Food Truck' },
   { href: '/contact', label: 'Contact' },
 ];
 
