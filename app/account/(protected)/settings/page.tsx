@@ -18,9 +18,20 @@ import {
   FormDescription,
   FormMessage,
 } from '@/components/ui/form';
-
+import { FormSuccess } from '@/components/form-success';
+import { FormError } from '@/components/form-error';
 import { Input } from '@/components/ui/input';
 import { useCurrentUser } from '@/hooks/use-current-user';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+
+import { UserRole } from '@prisma/client';
+import { Switch } from '@/components/ui/switch';
 
 const SettingsPage = () => {
   const user = useCurrentUser();
@@ -31,13 +42,17 @@ const SettingsPage = () => {
   const { update } = useSession();
 
   const onSubmit = (values: z.infer<typeof SettingsSchema>) => {
+    setError('');
+    setSuccess('');
     startTransition(() => {
       settings(values)
         .then((data) => {
           if (data.error) {
+            form.reset();
             setError(data.error);
           }
           if (data.success) {
+            form.reset();
             setSuccess(data.success);
             update();
           }
@@ -50,6 +65,11 @@ const SettingsPage = () => {
     resolver: zodResolver(SettingsSchema),
     defaultValues: {
       name: user?.name || undefined,
+      email: user?.email || undefined,
+      password: undefined,
+      newPassword: undefined,
+      role: user?.role || undefined,
+      isTwoFactorEnabled: user?.isTwoFactorEnabled || undefined,
     },
   });
 
@@ -75,11 +95,126 @@ const SettingsPage = () => {
                         disabled={isPending}
                       />
                     </FormControl>
+                    <FormMessage />
                   </FormItem>
                 )}
               />
+
+              {!user?.isOAuth && (
+                <>
+                  <FormField
+                    control={form.control}
+                    name='email'
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Email</FormLabel>
+                        <FormControl>
+                          <Input
+                            {...field}
+                            placeholder='john.doe@example.com'
+                            disabled={isPending}
+                            type='email'
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name='password'
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Password</FormLabel>
+                        <FormControl>
+                          <Input
+                            {...field}
+                            placeholder='******'
+                            disabled={isPending}
+                            type='password'
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name='newPassword'
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>New Password</FormLabel>
+                        <FormControl>
+                          <Input
+                            {...field}
+                            placeholder='******'
+                            disabled={isPending}
+                            type='password'
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </>
+              )}
+              {user?.role === UserRole.ADMIN && (
+                <FormField
+                  control={form.control}
+                  name='role'
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Role</FormLabel>
+                      <Select
+                        disabled={isPending}
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                      >
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue placeholder='Select a role' />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          <SelectItem value={UserRole.ADMIN}>ADMIN</SelectItem>
+                          <SelectItem value={UserRole.USER}>USER</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              )}
+
+              {!user?.isOAuth && (
+                <FormField
+                  control={form.control}
+                  name='isTwoFactorEnabled'
+                  render={({ field }) => (
+                    <FormItem className='flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm'>
+                      <div className='space-y-0.5'>
+                        <FormLabel>Two Factor Authentication</FormLabel>
+                        <FormDescription>
+                          Enable two factor authentication for your account
+                        </FormDescription>
+                      </div>
+                      <FormControl>
+                        <Switch
+                          disabled={isPending}
+                          checked={field.value}
+                          onCheckedChange={field.onChange}
+                        />
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
+              )}
             </div>
-            <Button type='submit'>Save</Button>
+            <FormError message={error} />
+            <FormSuccess message={success} />
+            <Button disabled={isPending} type='submit'>
+              Save
+            </Button>
           </form>
         </Form>
       </CardContent>
