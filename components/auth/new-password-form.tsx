@@ -19,6 +19,7 @@ import { Button } from '../ui/button';
 import { FormError } from '../form-error';
 import { FormSuccess } from '../form-success';
 import { newPassword } from '@/actions/new-password';
+import { navigate } from '@/actions/navigate';
 
 export const NewPasswordForm = () => {
   const [isPending, startTransition] = useTransition();
@@ -37,6 +38,7 @@ export const NewPasswordForm = () => {
         setSuccess(data.success);
       });
     });
+    navigate();
   };
 
   const form = useForm<z.infer<typeof NewPasswordSchema>>({
