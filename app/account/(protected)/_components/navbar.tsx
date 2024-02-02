@@ -26,7 +26,7 @@ const NavBar = () => {
           asChild
           variant={pathname === '/account/admin' ? 'default' : 'outline'}
         >
-          <Link href='/account/Admin'>Admin</Link>
+          <Link href='/account/admin'>Admin</Link>
         </Button>
         <Button
           asChild

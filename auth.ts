@@ -43,7 +43,7 @@ export const {
         session.user.id = token.sub;
       }
       if (token.role && session.user) {
-        session.user.role = token.role;
+        session.user.role = token.role as 'ADMIN' | 'USER';
       }
       if (session.user) {
         session.user.isTwoFactorEnabled = token.isTwoFactorEnabled as boolean;
