@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { SessionProvider } from 'next-auth/react';
 import { auth } from '@/auth';
+import { Toaster } from 'sonner';
 
 const CurrentFont = Barlow({
   weight: '400',
@@ -60,6 +61,7 @@ export default async function RootLayout({
               ))}
             </div>
           </div>
+          <Toaster />
           {children}
           <div className='bg-[#4a4e69] text-[#f2e9e4]'>
             <div className='flex flex-col p-5 justify-between md:flex-row lg:flex-row'>
