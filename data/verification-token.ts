@@ -21,3 +21,13 @@ export const getVerificationTokenByToken = async (token: string) => {
     return null;
   }
 };
+
+export const getVerificationTokenById = async (id: string) => {
+  try {
+    const verificationToken = await prisma.verificationToken.findFirst({
+      where: { id },
+    });
+  } catch {
+    return null;
+  }
+};
