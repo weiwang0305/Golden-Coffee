@@ -8,6 +8,17 @@ import { auth } from '@/auth';
 import { Toaster } from 'sonner';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { FaUser } from 'react-icons/fa';
+import { FaShoppingCart } from 'react-icons/fa';
+import { LogoutButton } from '@/components/auth/logout-button';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+  DropdownMenuItem,
+} from '@/components/ui/dropdown-menu';
+import { ExitIcon } from '@radix-ui/react-icons';
+import { SettingButton } from '@/components/auth/settingButton';
+import { IoSettingsOutline } from 'react-icons/io5';
 
 const CurrentFont = Barlow({
   weight: '400',
@@ -35,7 +46,7 @@ export default async function RootLayout({
   return (
     <SessionProvider session={session}>
       <html lang='en' className='w-screen m-0 p-0 overflow-x-hidden'>
-        <body className={`${CurrentFont.className} bg-[#edf6f9]`}>
+        <body className={`${CurrentFont.className}`}>
           <div className='flex justify-center text-lg bg-[#22223b] text-gray-200 p-1 text-center'>
             <Link href='/account/register'>
               <span className='tracking-widest'>
@@ -51,7 +62,7 @@ export default async function RootLayout({
                 </div>
               </Link>
             </div>
-            <div className='flex w-full gap-5 text-center justify-end flex-col md:flex-row md:justify-center'>
+            <div className='flex w-full gap-5 text-center items-center justify-end flex-col md:flex-row md:justify-center'>
               {navigation.map((nav) => (
                 <Link
                   className='relative group'
@@ -62,13 +73,42 @@ export default async function RootLayout({
                 </Link>
               ))}
               {session?.user && (
-                <Avatar>
-                  <AvatarImage src={session.user.image || ''} />
-                  <AvatarFallback className='bg-sky-500'>
-                    <FaUser className='text-white'></FaUser>
-                  </AvatarFallback>
-                </Avatar>
+                <>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger>
+                      <Avatar>
+                        <AvatarImage src={session.user.image || ''} />
+                        <AvatarFallback className=''>
+                          <FaUser className='text-black'></FaUser>
+                        </AvatarFallback>
+                      </Avatar>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent>
+                      <SettingButton>
+                        <DropdownMenuItem>
+                          <IoSettingsOutline className='h-4 w-4 mr-2' />
+                          Settings
+                        </DropdownMenuItem>
+                      </SettingButton>
+                      <LogoutButton>
+                        <DropdownMenuItem>
+                          <ExitIcon className='h-4 w-4 mr-2' />
+                          Logout
+                        </DropdownMenuItem>
+                      </LogoutButton>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+
+                  <div>
+                    <FaShoppingCart size={17} />
+                  </div>
+                </>
               )}
+              {/* {!session?.user && (
+                <>
+                <
+                </>
+              )} */}
             </div>
           </div>
           <Toaster />
