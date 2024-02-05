@@ -15,15 +15,6 @@ const barlow600 = Barlow({
 const HomePage = () => {
   return (
     <div className='w-full h-full'>
-      <div className='w-4/5 h-2/5 relative m-auto'>
-        <Image
-          src={'/background-wide.jpg'}
-          alt='Coffee background'
-          fill={true}
-          quality={100}
-          className='m-auto'
-        />
-      </div>
       <div className='text-4xl flex justify-center align-middle flex-nowrap mt-[100px] text-center'>
         WHERE EVERY COFFEE TASTE LIKE
       </div>
@@ -39,7 +30,8 @@ const HomePage = () => {
                 alt='bakehouse'
                 width={300}
                 height={300}
-                className='rounded-lg'
+                className='rounded-lg w-auto h-auto'
+                priority
               />
             </Link>
           </div>
@@ -57,7 +49,8 @@ const HomePage = () => {
                 alt='picture of golden coffee'
                 width={300}
                 height={300}
-                className='rounded-lg'
+                className='rounded-lg w-auto h-auto'
+                priority
               />
             </Link>
           </div>
@@ -75,7 +68,8 @@ const HomePage = () => {
                 alt='picture of food truck'
                 width={300}
                 height={300}
-                className='rounded-lg'
+                className='rounded-lg w-auto h-auto'
+                priority
               />
             </Link>
           </div>
