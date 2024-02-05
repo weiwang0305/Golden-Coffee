@@ -7,6 +7,7 @@ import { SessionProvider } from 'next-auth/react';
 import { auth } from '@/auth';
 import { Toaster } from 'sonner';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
+import { FaUser } from 'react-icons/fa';
 
 const CurrentFont = Barlow({
   weight: '400',
@@ -31,7 +32,6 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const session = await auth();
-  console.log(session);
   return (
     <SessionProvider session={session}>
       <html lang='en' className='w-screen m-0 p-0 overflow-x-hidden'>
@@ -61,7 +61,14 @@ export default async function RootLayout({
                   {nav.label}
                 </Link>
               ))}
-              <Avatar></Avatar>
+              {session?.user && (
+                <Avatar>
+                  <AvatarImage src={session.user.image || ''} />
+                  <AvatarFallback className='bg-sky-500'>
+                    <FaUser className='text-white'></FaUser>
+                  </AvatarFallback>
+                </Avatar>
+              )}
             </div>
           </div>
           <Toaster />
