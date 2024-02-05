@@ -62,7 +62,7 @@ export const login = async (
         existingUser.id
       );
       if (existingConfirmation) {
-        prisma.twoFactorConfirmation.delete({
+        await prisma.twoFactorConfirmation.delete({
           where: { id: existingConfirmation.id },
         });
       }
@@ -83,7 +83,7 @@ export const login = async (
     await signIn('credentials', {
       email,
       password,
-      // redirectTo: callbackUrl || DEFAULT_LOGIN_REDIRECT,
+      redirectTo: callbackUrl || DEFAULT_LOGIN_REDIRECT,
     });
     return { success: 'Email sent!' };
   } catch (error) {
