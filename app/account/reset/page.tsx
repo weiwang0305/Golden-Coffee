@@ -5,7 +5,8 @@ const ResetPage = () => {
   return (
     <div className='flex justify-center'>
       <CardWrapper
-        headerLabel='Forgot your password?'
+        label='Forgot your password?'
+        header='Reset Password'
         backButtonLabel='Back to login'
         backButtonHref='/account/login'
       >

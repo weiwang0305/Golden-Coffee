@@ -7,7 +7,8 @@ import { BackButton } from './back-button';
 
 interface CardWrapperProps {
   children: React.ReactNode;
-  headerLabel: string;
+  header: string;
+  label: string;
   backButtonLabel: string;
   backButtonHref: string;
   showSocial?: boolean;
@@ -15,7 +16,8 @@ interface CardWrapperProps {
 
 export const CardWrapper = ({
   children,
-  headerLabel,
+  label,
+  header,
   backButtonLabel,
   backButtonHref,
   showSocial,
@@ -23,7 +25,7 @@ export const CardWrapper = ({
   return (
     <Card className='w-[400px] shadow-md'>
       <CardHeader>
-        <Header label={headerLabel} />
+        <Header label={label} header={header} />
       </CardHeader>
       <CardContent>{children}</CardContent>
       {showSocial && (

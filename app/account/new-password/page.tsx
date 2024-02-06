@@ -5,7 +5,8 @@ const ResetPassword = () => {
   return (
     <div className='flex justify-center'>
       <CardWrapper
-        headerLabel='Enter a new password'
+        header='Recover your password'
+        label='Enter a new password'
         backButtonLabel='Back to login'
         backButtonHref='/account/login'
       >

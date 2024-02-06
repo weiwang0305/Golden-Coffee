@@ -5,7 +5,8 @@ const RegisterPage = () => {
   return (
     <div className='flex justify-center'>
       <CardWrapper
-        headerLabel='Create an account'
+        header='Sign Up'
+        label='Create an account'
         backButtonLabel='Already have an account?'
         backButtonHref='/account/login'
         showSocial

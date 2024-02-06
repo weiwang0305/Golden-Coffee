@@ -5,7 +5,8 @@ const LoginPage = () => {
   return (
     <div className='flex justify-center'>
       <CardWrapper
-        headerLabel='Welcome back'
+        header='Sign In'
+        label='Welcome back'
         backButtonLabel="Don't have an account?"
         backButtonHref='/account/register'
         showSocial
