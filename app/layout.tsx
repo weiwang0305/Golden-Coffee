@@ -61,47 +61,47 @@ export default async function RootLayout({
           <div className='flex flex-col w-4/5 m-auto align-center justify-between md:flex-row lg:flex-row'>
             <div className='w-full'>
               <Link href='/'>
-                <div className='text-4xl font-black tracking-wider p-1 text-center md:text-left lg:text-left'>
+                <div className='text-4xl font-black tracking-wider p-1 flex justify-between md:text-left lg:text-left'>
                   <span>Golden Coffee</span>
+                  <div className='md:hidden'>
+                    <Sheet>
+                      <SheetTrigger asChild>
+                        <FaBars />
+                      </SheetTrigger>
+                      <SheetContent>
+                        <SheetClose asChild>
+                          <Link href='/account/login' className=''>
+                            <Avatar>
+                              <AvatarImage src={session?.user.image || ''} />
+                              <AvatarFallback className='bg-white'>
+                                <FaUser />
+                              </AvatarFallback>
+                            </Avatar>
+                          </Link>
+                        </SheetClose>
+                        {navigation.map((nav, i) => (
+                          <SheetClose key={i} asChild className='flex flex-col'>
+                            <Link href={nav.href}>{nav.label}</Link>
+                          </SheetClose>
+                        ))}
+                      </SheetContent>
+                    </Sheet>
+                  </div>
+                  {session?.user && (
+                    <>
+                      <UserButton />
+                      <div>
+                        <FaShoppingCart size={17} />
+                      </div>
+                    </>
+                  )}
                 </div>
               </Link>
             </div>
-            <Sheet>
-              <SheetTrigger asChild>
-                <FaBars />
-              </SheetTrigger>
-              <SheetContent>
-                {navigation.map((nav, i) => (
-                  <SheetClose key={i} asChild className='flex flex-col'>
-                    <Link href={nav.href}>{nav.label}</Link>
-                  </SheetClose>
-                ))}
-              </SheetContent>
-            </Sheet>
-            <nav className='mx-6 items-center space-x-4 lg:space-x-6 hidden md:block'>
-              {navigation.map((nav, i) => (
-                <Button asChild variant='ghost' key={i}>
-                  <Link
-                    href={nav.href}
-                    className='text-sm font-medium transition-colors'
-                  >
-                    {nav.label}
-                  </Link>
-                </Button>
-              ))}
-            </nav>
 
-            {session?.user && (
-              <>
-                <UserButton />
-                <div>
-                  <FaShoppingCart size={17} />
-                </div>
-              </>
-            )}
             {!session?.user && (
               <>
-                <Link href='/account/login'>
+                <Link href='/account/login' className='hidden md:block'>
                   <Avatar>
                     <AvatarImage src={session?.user.image || ''} />
                     <AvatarFallback className='bg-white'>
@@ -112,7 +112,25 @@ export default async function RootLayout({
               </>
             )}
           </div>
-          {/* </div> */}
+          <nav className=' justify-center flex-row hidden md:flex w-full'>
+            {navigation.map((nav, i) => (
+              <Button
+                asChild
+                variant='ghost'
+                key={i}
+                size='lg'
+                className='shadow-sm'
+              >
+                <Link
+                  href={nav.href}
+                  className='text-sm font-medium transition-colors'
+                >
+                  <span className='text-lg'>{nav.label}</span>
+                </Link>
+              </Button>
+            ))}
+          </nav>
+
           <Toaster />
           {children}
           <div className='bg-[#4a4e69] text-[#f2e9e4]'>
