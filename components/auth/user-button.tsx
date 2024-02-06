@@ -7,6 +7,9 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 
+import { SettingButton } from '@/components/auth/settingButton';
+import { IoSettingsOutline } from 'react-icons/io5';
+
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { FaUser } from 'react-icons/fa';
 import { useCurrentUser } from '@/hooks/use-current-user';
@@ -15,18 +18,25 @@ import { ExitIcon } from '@radix-ui/react-icons';
 
 export const UserButton = () => {
   const user = useCurrentUser();
+  console.log(user);
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
         <Avatar>
-          <AvatarImage src={user?.image || ''} />
-          <AvatarFallback className='bg-sky-500'>
-            <FaUser className='text-white'></FaUser>
+          <AvatarImage src={user?.image || undefined} />
+          <AvatarFallback className=''>
+            <FaUser className='text-black'></FaUser>
           </AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
+        <SettingButton>
+          <DropdownMenuItem>
+            <IoSettingsOutline className='h-4 w-4 mr-2' />
+            Settings
+          </DropdownMenuItem>
+        </SettingButton>
         <LogoutButton>
           <DropdownMenuItem>
             <ExitIcon className='h-4 w-4 mr-2' />

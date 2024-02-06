@@ -9,16 +9,7 @@ import { Toaster } from 'sonner';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { FaUser } from 'react-icons/fa';
 import { FaShoppingCart } from 'react-icons/fa';
-import { LogoutButton } from '@/components/auth/logout-button';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuTrigger,
-  DropdownMenuItem,
-} from '@/components/ui/dropdown-menu';
-import { ExitIcon } from '@radix-ui/react-icons';
-import { SettingButton } from '@/components/auth/settingButton';
-import { IoSettingsOutline } from 'react-icons/io5';
+import { UserButton } from '@/components/auth/user-button';
 
 const CurrentFont = Barlow({
   weight: '400',
@@ -50,7 +41,9 @@ export default async function RootLayout({
           <div className='flex justify-center text-lg bg-[#22223b] text-gray-200 p-1 text-center'>
             <Link href='/account/register'>
               <span className='tracking-widest'>
-                Join the Coffee Club ☕! 50% OFF FIRST ORDER!
+                <span className=''>
+                  Join the Coffee Club ☕! 50% OFF FIRST ORDER!
+                </span>
               </span>
             </Link>
           </div>
@@ -74,41 +67,24 @@ export default async function RootLayout({
               ))}
               {session?.user && (
                 <>
-                  <DropdownMenu>
-                    <DropdownMenuTrigger>
-                      <Avatar>
-                        <AvatarImage src={session.user.image || ''} />
-                        <AvatarFallback className=''>
-                          <FaUser className='text-black'></FaUser>
-                        </AvatarFallback>
-                      </Avatar>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent>
-                      <SettingButton>
-                        <DropdownMenuItem>
-                          <IoSettingsOutline className='h-4 w-4 mr-2' />
-                          Settings
-                        </DropdownMenuItem>
-                      </SettingButton>
-                      <LogoutButton>
-                        <DropdownMenuItem>
-                          <ExitIcon className='h-4 w-4 mr-2' />
-                          Logout
-                        </DropdownMenuItem>
-                      </LogoutButton>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-
+                  <UserButton />
                   <div>
                     <FaShoppingCart size={17} />
                   </div>
                 </>
               )}
-              {/* {!session?.user && (
+              {!session?.user && (
                 <>
-                <
+                  <Link href='/account/login'>
+                    <Avatar>
+                      <AvatarImage src={session?.user.image || ''} />
+                      <AvatarFallback>
+                        <FaUser className='text-black'></FaUser>
+                      </AvatarFallback>
+                    </Avatar>
+                  </Link>
                 </>
-              )} */}
+              )}
             </div>
           </div>
           <Toaster />
