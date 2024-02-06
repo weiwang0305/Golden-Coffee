@@ -22,11 +22,11 @@ export const UserButton = () => {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger>
+      <DropdownMenuTrigger asChild>
         <Avatar>
           <AvatarImage src={user?.image || undefined} />
-          <AvatarFallback className=''>
-            <FaUser className='text-black'></FaUser>
+          <AvatarFallback className='bg-white'>
+            <FaUser size={17}></FaUser>
           </AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>

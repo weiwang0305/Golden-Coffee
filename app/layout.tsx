@@ -60,43 +60,50 @@ export default async function RootLayout({
           </div>
           <div className='flex flex-col w-4/5 m-auto align-center justify-between md:flex-row lg:flex-row'>
             <div className='w-full'>
-              <Link href='/'>
-                <div className='text-4xl font-black tracking-wider p-1 flex justify-between md:text-left lg:text-left'>
-                  <span>Golden Coffee</span>
-                  <div className='md:hidden'>
-                    <Sheet>
-                      <SheetTrigger asChild>
-                        <FaBars />
-                      </SheetTrigger>
-                      <SheetContent>
-                        <SheetClose asChild>
-                          <Link href='/account/login' className=''>
-                            <Avatar>
-                              <AvatarImage src={session?.user.image || ''} />
-                              <AvatarFallback className='bg-white'>
-                                <FaUser />
-                              </AvatarFallback>
-                            </Avatar>
-                          </Link>
+              <div className='text-4xl font-black tracking-wider p-1 flex flex-row justify-between items-center md:text-left lg:text-left'>
+                <span>
+                  <Link className='w-full' href='/'>
+                    {' '}
+                    Golden Coffee
+                  </Link>
+                </span>
+                <div className='md:hidden'>
+                  <Sheet>
+                    <SheetTrigger asChild>
+                      <FaBars />
+                    </SheetTrigger>
+                    <SheetContent>
+                      <SheetClose asChild>
+                        <Link href='/account/login' className=''>
+                          <Avatar>
+                            <AvatarImage src={session?.user.image || ''} />
+                            <AvatarFallback className='bg-white'>
+                              <FaUser />
+                            </AvatarFallback>
+                          </Avatar>
+                        </Link>
+                      </SheetClose>
+                      {navigation.map((nav, i) => (
+                        <SheetClose key={i} asChild className='flex flex-col'>
+                          <Link href={nav.href}>{nav.label}</Link>
                         </SheetClose>
-                        {navigation.map((nav, i) => (
-                          <SheetClose key={i} asChild className='flex flex-col'>
-                            <Link href={nav.href}>{nav.label}</Link>
-                          </SheetClose>
-                        ))}
-                      </SheetContent>
-                    </Sheet>
-                  </div>
+                      ))}
+                    </SheetContent>
+                  </Sheet>
+                </div>
+                <div className='hidden md:block justify-center items-center flex-row'>
                   {session?.user && (
-                    <>
-                      <UserButton />
+                    <div className='flex flex-row justify-center items-center'>
+                      <div className='mx-5'>
+                        <UserButton />
+                      </div>
                       <div>
                         <FaShoppingCart size={17} />
                       </div>
-                    </>
+                    </div>
                   )}
                 </div>
-              </Link>
+              </div>
             </div>
 
             {!session?.user && (
@@ -112,6 +119,7 @@ export default async function RootLayout({
               </>
             )}
           </div>
+
           <nav className=' justify-center flex-row hidden md:flex w-full'>
             {navigation.map((nav, i) => (
               <Button
