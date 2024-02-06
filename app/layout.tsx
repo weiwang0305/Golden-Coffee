@@ -78,8 +78,8 @@ export default async function RootLayout({
                   <Link href='/account/login'>
                     <Avatar>
                       <AvatarImage src={session?.user.image || ''} />
-                      <AvatarFallback>
-                        <FaUser className='text-black'></FaUser>
+                      <AvatarFallback className='bg-white'>
+                        <FaUser />
                       </AvatarFallback>
                     </Avatar>
                   </Link>
