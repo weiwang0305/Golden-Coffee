@@ -10,6 +10,17 @@ import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { FaUser } from 'react-icons/fa';
 import { FaShoppingCart } from 'react-icons/fa';
 import { UserButton } from '@/components/auth/user-button';
+import { Button } from '@/components/ui/button';
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTrigger,
+  SheetTitle,
+  SheetClose,
+} from '@/components/ui/sheet';
+import { FaBars } from 'react-icons/fa';
+import { IoMdHome } from 'react-icons/io';
 
 const CurrentFont = Barlow({
   weight: '400',
@@ -55,38 +66,53 @@ export default async function RootLayout({
                 </div>
               </Link>
             </div>
-            <div className='flex w-full gap-5 text-center items-center justify-end flex-col md:flex-row md:justify-center'>
-              {navigation.map((nav) => (
-                <Link
-                  className='relative group'
-                  key={nav.label}
-                  href={nav.href}
-                >
-                  {nav.label}
-                </Link>
-              ))}
-              {session?.user && (
-                <>
-                  <UserButton />
-                  <div>
-                    <FaShoppingCart size={17} />
-                  </div>
-                </>
-              )}
-              {!session?.user && (
-                <>
-                  <Link href='/account/login'>
-                    <Avatar>
-                      <AvatarImage src={session?.user.image || ''} />
-                      <AvatarFallback className='bg-white'>
-                        <FaUser />
-                      </AvatarFallback>
-                    </Avatar>
+            <Sheet>
+              <SheetTrigger asChild>
+                <FaBars />
+              </SheetTrigger>
+              <SheetContent>
+                {navigation.map((nav, i) => (
+                  <SheetClose key={i} asChild className='flex flex-col'>
+                    <Link href={nav.href}>{nav.label}</Link>
+                  </SheetClose>
+                ))}
+              </SheetContent>
+            </Sheet>
+            <nav className='mx-6 items-center space-x-4 lg:space-x-6 hidden md:block'>
+              {navigation.map((nav, i) => (
+                <Button asChild variant='ghost' key={i}>
+                  <Link
+                    href={nav.href}
+                    className='text-sm font-medium transition-colors'
+                  >
+                    {nav.label}
                   </Link>
-                </>
-              )}
-            </div>
+                </Button>
+              ))}
+            </nav>
+
+            {session?.user && (
+              <>
+                <UserButton />
+                <div>
+                  <FaShoppingCart size={17} />
+                </div>
+              </>
+            )}
+            {!session?.user && (
+              <>
+                <Link href='/account/login'>
+                  <Avatar>
+                    <AvatarImage src={session?.user.image || ''} />
+                    <AvatarFallback className='bg-white'>
+                      <FaUser />
+                    </AvatarFallback>
+                  </Avatar>
+                </Link>
+              </>
+            )}
           </div>
+          {/* </div> */}
           <Toaster />
           {children}
           <div className='bg-[#4a4e69] text-[#f2e9e4]'>
