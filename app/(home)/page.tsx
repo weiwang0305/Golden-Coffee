@@ -123,7 +123,7 @@ const HomePage = () => {
         </div>
       </div>
       <div className='w-full flex justify-center p-5'>
-        <Carousel className='w-2/4' plugins={[Autoplay({ delay: 4000 })]}>
+        <Carousel className='w-2/4' plugins={[Autoplay({ delay: 5000 })]}>
           <CarouselContent>
             <CarouselItem className=''>
               <div className='relative h-[600px] overflow-hidden'>
