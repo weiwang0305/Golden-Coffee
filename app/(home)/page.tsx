@@ -126,10 +126,13 @@ const HomePage = () => {
         </div>
       </div>
       <div className='w-full flex justify-center p-5'>
-        <Carousel className='w-2/4' plugins={[Autoplay({ delay: 5000 })]}>
+        <Carousel
+          className='w-full md:w-3/4 md:max-w-[1000px]'
+          plugins={[Autoplay({ delay: 5000 })]}
+        >
           <CarouselContent>
             <CarouselItem className=''>
-              <div className='relative h-[600px] overflow-hidden'>
+              <div className='relative h-[400px] md:h-[600px] overflow-hidden'>
                 <Image
                   alt='coffee machine'
                   src={'/carousel1.jpg'}
@@ -142,7 +145,7 @@ const HomePage = () => {
               </div>
             </CarouselItem>
             <CarouselItem className=''>
-              <div className='relative h-[600px] overflow-hidden'>
+              <div className='relative h-[400px] md:h-[600px] overflow-hidden'>
                 <Image
                   alt='barista making coffee'
                   src={'/carousel2.jpg'}
@@ -155,7 +158,7 @@ const HomePage = () => {
               </div>
             </CarouselItem>
             <CarouselItem className=''>
-              <div className='relative h-[600px] overflow-hidden'>
+              <div className='relative h-[400px] md:h-[600px] overflow-hidden'>
                 <Image
                   alt='latte sitting on table'
                   src={'/carousel3.jpg'}
@@ -168,7 +171,7 @@ const HomePage = () => {
               </div>
             </CarouselItem>
             <CarouselItem className=''>
-              <div className='relative h-[600px] overflow-hidden'>
+              <div className='relative h-[400px] md:h-[600px] overflow-hidden'>
                 <Image
                   alt='life is short, enjoy your coffee'
                   src={'/carousel4.jpg'}

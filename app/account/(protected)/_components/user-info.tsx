@@ -11,7 +11,7 @@ export const UserInfo = ({ user, label }: UserInfoProps) => {
   console.log(user?.isTwoFactorEnabled);
   return (
     <div>
-      <Card className='w-[600px] shadow-md'>
+      <Card className='w-1/2 min-w-[400px] md:min-w-[600px] md:max-w-[600px] mb-10 shadow-md'>
         <CardHeader>
           <p className='text-2xl font-semibold text-center'>{label}</p>
         </CardHeader>
