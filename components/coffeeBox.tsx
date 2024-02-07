@@ -35,6 +35,7 @@ const CoffeeBox = ({
           sizes='100vw'
           quality={100}
           objectFit='cover'
+          className='p-2'
         />
       </div>
 

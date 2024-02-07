@@ -1,8 +1,9 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import CoffeeBox from './coffeeBox';
 import { DrinkItem } from './types';
 import _ from 'lodash';
+import { Button } from './ui/button';
 
 const CoffeeView = ({
   classicdata,
@@ -19,25 +20,27 @@ const CoffeeView = ({
         <div>
           <div className='text-4xl p-5'>Our Collection</div>
           <p className='w-[400px] mx-auto my-5'>
-            Introducing our Coffee Collection, a selection of unique coffees
+            Introducing our coffee collection, a selection of unique coffees
             from different roasst types and origins, expertly roasted in small
             batches and shipped fresh weekly.
           </p>
         </div>
       </div>
-      <div className='flex justify-center'>
-        <button
-          className='border rounded-md mt-2 mr-4 p-2 mb-8 hover:bg-gray-700'
-          onClick={() => setCurrentSelection(classicdata)}
-        >
-          Classic
-        </button>
-        <button
-          className='border rounded-md mt-2 ml-4 p-2 mb-8 hover:bg-gray-700'
-          onClick={() => setCurrentSelection(seasonaldata)}
-        >
-          Seasonal
-        </button>
+      <div className='flex justify-center p-2 mb-5'>
+        <div className='flex justify-between w-2/4'>
+          <Button
+            onClick={() => setCurrentSelection(classicdata)}
+            variant={'outline'}
+          >
+            Classic
+          </Button>
+          <Button
+            onClick={() => setCurrentSelection(seasonaldata)}
+            variant={'outline'}
+          >
+            Seasonal
+          </Button>
+        </div>
       </div>
       <div className='grid-rows-1 grid gap-x-5 justify-evenly justify-items-center '>
         {currentSelection.map((currentdata: DrinkItem, index: number) => (
