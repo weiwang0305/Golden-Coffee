@@ -11,6 +11,7 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
+import { Button } from '@/components/ui/button';
 
 const barlow700 = Barlow({
   weight: '700',
@@ -106,8 +107,10 @@ const HomePage = () => {
                   pair of longtime NYC coffee veterans.
                 </p>
               </div>
-              <p className='mt-4 hover:bg-slate-200 active:bg-slate-100 cursor-pointer'>
-                <Link href='/ourstory'>READ MORE →</Link>
+              <p className='mt-4'>
+                <Button asChild className='cursor-pointer'>
+                  <Link href='/ourstory'>READ MORE →</Link>
+                </Button>
               </p>
             </div>
           </div>
