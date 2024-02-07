@@ -1,6 +1,16 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Barlow } from 'next/font/google';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
+import Autoplay from 'embla-carousel-autoplay';
 
 const barlow700 = Barlow({
   weight: '700',
@@ -112,81 +122,65 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-
-      <div className='bg-[#fffddd2] w-full'>
-        <div className='bg-[#edf6f9]justify-items-center text-center mt-5 bg-[#fffddd2] flex-wrap'>
-          <h3 className={`${barlow700.className} text-2xl font-bold`}>
-            ORGANIC NATURAL INGREDIENTS AND NO PRESERVATIVES
-          </h3>
-          <p className={`${barlow700.className} text-5xl p-5`}>
-            Make People Happy
-          </p>
-          <div className='flex w-full p-4 flex-col md:flex-row lg:flex-row'>
-            <div className='basis-1/3 p-5 rounded-lg'>
-              <div className='h-[160px] w-full overflow-hidden mx-auto'>
+      <div className='w-full flex justify-center p-5'>
+        <Carousel className='w-2/4' plugins={[Autoplay({ delay: 4000 })]}>
+          <CarouselContent>
+            <CarouselItem className=''>
+              <div className='relative h-[600px] overflow-hidden'>
                 <Image
-                  src={'/ethicallysourced.jpg'}
-                  alt='Ethically sourced coffee'
-                  height={180}
-                  width={300}
-                  className='rounded-lg m-auto'
-                />
+                  alt='coffee machine'
+                  src={'/carousel1.jpg'}
+                  sizes='100vw'
+                  fill
+                  objectFit='cover'
+                  quality={100}
+                  className='m-auto'
+                ></Image>
               </div>
-              <p className={`${barlow600.className} text-xl p-2 font-bold`}>
-                Ethically Sourced Goodness:
-              </p>
-              <p>
-                Behold the journey of our ethically sourced coffee beans, a
-                testament to our commitment to sustainability. With deep
-                relationships with farmers, our beans reflect integrity and
-                care, ensuring a cup of coffee that not only tastes good but
-                also does good for the planet.
-              </p>
-            </div>
-            <div className='basis-1/3 p-5 rounded-lg'>
-              <div className='h-[160px] w-full overflow-hidden mx-auto'>
+            </CarouselItem>
+            <CarouselItem className=''>
+              <div className='relative h-[600px] overflow-hidden'>
                 <Image
-                  src={'/coffee-beans.jpg'}
-                  alt='Coffee Beans'
-                  height={300}
-                  width={300}
-                  className='rounded-lg m-auto'
-                />
+                  alt='barista making coffee'
+                  src={'/carousel2.jpg'}
+                  sizes='100vw'
+                  fill
+                  objectFit='cover'
+                  quality={100}
+                  className='m-auto'
+                ></Image>
               </div>
-              <p className={`${barlow600.className} text-xl p-2 font-bold`}>
-                Bean to Brew Brilliance:
-              </p>
-              <p>
-                Explore the heart of Golden Coffee with a glimpse into the world
-                of our meticulously selected coffee beans. From cultivation to
-                brewing, our dedication to quality shines through, promising a
-                joyful experience in every sip. At Golden Coffee, we celebrate
-                the pure journey from bean to brew.
-              </p>
-            </div>
-            <div className='basis-1/3 p-5 rounded-lg'>
-              <div className='h-[160px] w-full overflow-hidden mx-auto'>
+            </CarouselItem>
+            <CarouselItem className=''>
+              <div className='relative h-[600px] overflow-hidden'>
                 <Image
-                  src={'/happyperson.jpg'}
-                  alt='Happy person drinking coffee'
-                  height={300}
-                  width={300}
-                  className='rounded-lg m-auto'
-                />
+                  alt='latte sitting on table'
+                  src={'/carousel3.jpg'}
+                  sizes='100vw'
+                  fill
+                  objectFit='cover'
+                  quality={100}
+                  className='m-auto'
+                ></Image>
               </div>
-              <p className={`${barlow600.className} text-xl p-2 font-bold`}>
-                Sip, Smile, Repeat:
-              </p>
-              <p>
-                Experience the joy in every sip with our happy customer enjoying
-                the warmth of Golden Coffee. Free from preservatives and crafted
-                with organic, natural ingredients, our coffee not only satisfies
-                your taste buds but also brings genuine happiness. Elevate your
-                mood with every delightful moment of Golden Coffee bliss.
-              </p>
-            </div>
-          </div>
-        </div>
+            </CarouselItem>
+            <CarouselItem className=''>
+              <div className='relative h-[600px] overflow-hidden'>
+                <Image
+                  alt='life is short, enjoy your coffee'
+                  src={'/carousel4.jpg'}
+                  sizes='100vw'
+                  fill
+                  objectFit='cover'
+                  quality={100}
+                  className='m-auto'
+                ></Image>
+              </div>
+            </CarouselItem>
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
       </div>
     </div>
   );
