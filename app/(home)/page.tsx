@@ -138,7 +138,6 @@ const HomePage = () => {
                   src={'/carousel1.jpg'}
                   sizes='100vw'
                   fill
-                  objectFit='cover'
                   quality={100}
                   className='m-auto'
                 ></Image>
@@ -151,7 +150,6 @@ const HomePage = () => {
                   src={'/carousel2.jpg'}
                   sizes='100vw'
                   fill
-                  objectFit='cover'
                   quality={100}
                   className='m-auto'
                 ></Image>
@@ -164,7 +162,6 @@ const HomePage = () => {
                   src={'/carousel3.jpg'}
                   sizes='100vw'
                   fill
-                  objectFit='cover'
                   quality={100}
                   className='m-auto'
                 ></Image>
@@ -177,7 +174,6 @@ const HomePage = () => {
                   src={'/carousel4.jpg'}
                   sizes='100vw'
                   fill
-                  objectFit='cover'
                   quality={100}
                   className='m-auto'
                 ></Image>

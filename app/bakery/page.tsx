@@ -1,6 +1,8 @@
 import BakeryView from '../../components/bakeryView';
 import prisma from '@/lib/prisma';
 
+import { currentUser } from '@/lib/auth';
+
 const BakeryPage = async () => {
   const data = await prisma.menu.findMany({
     orderBy: [
@@ -9,6 +11,8 @@ const BakeryPage = async () => {
       },
     ],
   });
-  return <BakeryView data={data} />;
+  const user = await currentUser();
+
+  return <BakeryView data={data} user={user} />;
 };
 export default BakeryPage;

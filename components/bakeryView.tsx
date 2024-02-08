@@ -15,13 +15,23 @@ import {
   SheetDescription,
 } from './ui/sheet';
 import { Separator } from './ui/separator';
-import { getCart } from '@/actions/cart';
+import { updateCart } from '@/actions/cart';
+import { ExtendedUser } from '@/next-auth';
 
-const BakeryView = ({ data }: { data: MenuItem[] }) => {
+const BakeryView = ({
+  data,
+  user,
+}: {
+  data: MenuItem[];
+  user?: ExtendedUser;
+}) => {
   const [category, setCategory] = useState('pastries');
   const [originaldata, setCurrentData] = useState(data);
   const [currentSelection, setCurrentSelection] = useState(originaldata);
+  const [cart, setCart] = useState(user?.cart);
 
+  const handleAddCart = () => {};
+  console.log(user);
   return (
     <div className='text-center m-auto'>
       <div>
@@ -49,6 +59,7 @@ const BakeryView = ({ data }: { data: MenuItem[] }) => {
                 <Button
                   variant='outline'
                   className='text-sm bg-black text-white m-2 uppercase p-6'
+                  onClick={handleAddCart}
                 >
                   <span className='tracking-wider'>Add to Cart</span>
                   <span className='mx-4'>|</span>
