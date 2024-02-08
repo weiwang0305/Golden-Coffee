@@ -13,7 +13,6 @@ const MenuView = ({ id, name, description, price, type, image }: MenuItem) => {
           fill
           sizes='100vw'
           quality={100}
-          objectFit='cover'
           className='p-2'
         />
       </div>

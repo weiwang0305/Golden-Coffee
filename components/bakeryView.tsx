@@ -5,6 +5,17 @@ import { MenuItem } from './types';
 import MenuView from './menuView';
 import Image from 'next/image';
 import { Button } from './ui/button';
+import {
+  Sheet,
+  SheetTrigger,
+  SheetContent,
+  SheetClose,
+  SheetHeader,
+  SheetTitle,
+  SheetDescription,
+} from './ui/sheet';
+import { Separator } from './ui/separator';
+import { getCart } from '@/actions/cart';
 
 const BakeryView = ({ data }: { data: MenuItem[] }) => {
   const [category, setCategory] = useState('pastries');
@@ -24,9 +35,8 @@ const BakeryView = ({ data }: { data: MenuItem[] }) => {
 
       <div>
         {currentSelection.map((current, index) => (
-          <>
+          <div key={index}>
             <MenuView
-              key={current.id}
               id={current.id}
               name={current.name}
               description={current.description}
@@ -34,15 +44,26 @@ const BakeryView = ({ data }: { data: MenuItem[] }) => {
               type={current.type}
               image={current.image}
             />
-            <Button
-              variant='outline'
-              className='text-sm bg-black text-white m-2 uppercase p-6'
-            >
-              <span className='tracking-wider'>Add to Cart</span>
-              <span className='mx-4'>|</span>
-              <span>{current.price}</span>
-            </Button>
-          </>
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button
+                  variant='outline'
+                  className='text-sm bg-black text-white m-2 uppercase p-6'
+                >
+                  <span className='tracking-wider'>Add to Cart</span>
+                  <span className='mx-4'>|</span>
+                  <span>{current.price}</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent>
+                <SheetHeader>
+                  <SheetTitle>Your Cart</SheetTitle>
+                </SheetHeader>
+                <Separator />
+                <div></div>
+              </SheetContent>
+            </Sheet>
+          </div>
         ))}
       </div>
     </div>
