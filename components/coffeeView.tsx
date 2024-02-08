@@ -27,7 +27,7 @@ const CoffeeView = ({
         </div>
       </div>
       <div className='flex justify-center p-2 mb-5'>
-        <div className='flex justify-between w-2/4'>
+        <div className='flex justify-between w-2/4 md:max-w-[200px]'>
           <Button
             onClick={() => setCurrentSelection(classicdata)}
             variant={'outline'}

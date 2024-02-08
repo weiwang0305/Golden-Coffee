@@ -19,14 +19,6 @@ const MenuView = ({ id, name, description, price, type, image }: MenuItem) => {
       </div>
       <p className='text-2xl font-bold tracking-wider'>{name}</p>
       <p className='text-sm font-light tracking-wider'>{description}</p>
-      <Button
-        variant='outline'
-        className='text-lg bg-black text-white m-2 uppercase p-6'
-      >
-        <span className='tracking-wider'>Add to Cart</span>
-        <span className='mx-4'>|</span>
-        <span>{price}</span>
-      </Button>
     </div>
   );
 };

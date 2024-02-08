@@ -74,7 +74,7 @@ export default async function RootLayout({
                     </SheetTrigger>
                     <SheetContent>
                       <SheetClose asChild>
-                        <Link href='/account/login' className=''>
+                        <Link href='/account/login' className='mx-2'>
                           <Avatar>
                             <AvatarImage src={session?.user.image || ''} />
                             <AvatarFallback className='bg-white'>
@@ -83,9 +83,16 @@ export default async function RootLayout({
                           </Avatar>
                         </Link>
                       </SheetClose>
+                      <SheetClose asChild>
+                        <Link href='/account/cart' className='mx-2'>
+                          <FaShoppingCart size={17} />
+                        </Link>
+                      </SheetClose>
                       {navigation.map((nav, i) => (
                         <SheetClose key={i} asChild className='flex flex-col'>
-                          <Link href={nav.href}>{nav.label}</Link>
+                          <Link href={nav.href} className='mx-4 my-4 text-lg'>
+                            {nav.label}
+                          </Link>
                         </SheetClose>
                       ))}
                     </SheetContent>
