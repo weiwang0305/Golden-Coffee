@@ -30,8 +30,10 @@ const BakeryView = ({
   const [currentSelection, setCurrentSelection] = useState(originaldata);
   const [cart, setCart] = useState(user?.cart);
 
-  const handleAddCart = () => {};
-  console.log(user);
+  const handleAddCart = (itemId: string) => {
+    updateCart(itemId);
+  };
+
   return (
     <div className='text-center m-auto'>
       <div>
@@ -59,7 +61,7 @@ const BakeryView = ({
                 <Button
                   variant='outline'
                   className='text-sm bg-black text-white m-2 uppercase p-6'
-                  onClick={handleAddCart}
+                  onClick={() => handleAddCart(current.id)}
                 >
                   <span className='tracking-wider'>Add to Cart</span>
                   <span className='mx-4'>|</span>

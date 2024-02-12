@@ -77,7 +77,16 @@ model User {
   role UserRole @default(USER)
   isTwoFactorEnabled Boolean @default(false)
   twoFactorConfirmation TwoFactorConfirmation?
-  cart String[]
+
+
+}
+
+model Cart {
+  id String @id @default(cuid())
+  userId String
+  productIds String[]
+
+  @@unique([userId])  
 }
 
 
