@@ -30,6 +30,7 @@ export const updateCart = async (itemId: string) => {
     where: { userId: user.id },
     include: { products: true },
   });
+
   if (!existingCart) {
     await prisma.cart.create({
       data: {
@@ -44,6 +45,26 @@ export const updateCart = async (itemId: string) => {
         },
       },
     });
+  } else {
+    const itemIndex = existingCart?.products.findIndex(
+      (p) => p.product_id === bakeryItem.id
+    );
+    if (itemIndex > -1) {
+      const itemId = existingCart.products[itemIndex].id;
+      await prisma.products.update({
+        where: { id: itemId },
+        data: { quantity: { increment: 1 } },
+      });
+    } else {
+      await prisma.cart.update({
+        where: { id: existingCart.id },
+        data: {
+          products: {
+            create: [{ product_id: bakeryItem.id, quantity: 1 }],
+          },
+        },
+      });
+    }
   }
 
   console.log(existingCart?.products[0].product_id);
