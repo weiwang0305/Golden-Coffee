@@ -15,8 +15,8 @@ export const getUserById = async (id: string) => {
   try {
     const user = await prisma.user.findFirst({
       where: { id },
+      include: { cart: true },
     });
-    console.log('inside user.ts', user);
     return user;
   } catch {
     return null;
