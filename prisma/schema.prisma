@@ -44,11 +44,12 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[] 
+  carts Cart[]
   password      String?
   role UserRole @default(USER)
   isTwoFactorEnabled Boolean @default(false)
   twoFactorConfirmation TwoFactorConfirmation?
-  cart Menu[]
+  
 
 }
 
@@ -59,8 +60,23 @@ model Menu {
   price       Float
   type        String
   image       String?
-  user User?  @relation(fields: [userId], references:[id])
-  userId String?
+  products Products[]
+
+}
+
+model Cart {
+  id String @id @default(cuid()) 
+  userId String
+  user User @relation(fields:[userId], references:[id])
+  products Products[]
+}
+
+model Products {
+  id String @id @default(cuid())
+  product_id String
+  product Menu @relation(fields:[product_id], references: [id])
+  cartId String
+  cart Cart @relation(fields:[cartId], references: [id])
 }
 
 
