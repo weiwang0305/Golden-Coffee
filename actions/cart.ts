@@ -28,15 +28,23 @@ export const updateCart = async (itemId: string) => {
 
   const existingCart = await prisma.cart.findFirst({
     where: { userId: user.id },
+    include: { products: true },
   });
-
   if (!existingCart) {
     await prisma.cart.create({
       data: {
         userId: databaseUser.id,
-        products: {},
+        products: {
+          create: [
+            {
+              product_id: bakeryItem.id,
+              quantity: 1,
+            },
+          ],
+        },
       },
     });
   }
-  // return { success: true };
+
+  console.log(existingCart?.products[0].product_id);
 };
