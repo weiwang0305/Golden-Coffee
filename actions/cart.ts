@@ -4,6 +4,7 @@ import { getBakeryItemById } from '@/data/menu';
 import { getUserById } from '@/data/user';
 import { currentUser } from '@/lib/auth';
 import prisma from '@/lib/prisma';
+import { PrismaClient } from '@prisma/client';
 
 export const updateCart = async (itemId: string) => {
   const user = await currentUser();
@@ -16,11 +17,6 @@ export const updateCart = async (itemId: string) => {
   }
 
   const bakeryItem = await getBakeryItemById(itemId);
-
-  await prisma.user.update({
-    where: { id: databaseUser.id },
-    data: {
-      cart: bakeryItem,
-    },
-  });
+  console.log(bakeryItem);
+  console.log(databaseUser);
 };
