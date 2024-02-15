@@ -76,7 +76,7 @@ export const {
       token.email = existingUser.email;
       token.role = existingUser.role;
       token.isTwoFactorEnabled = existingUser.isTwoFactorEnabled;
-      token.cart = existingUser.carts[0];
+      token.cart = existingCart;
       return token;
     },
   },
