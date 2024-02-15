@@ -19,6 +19,7 @@ import { updateCart } from '@/actions/cart';
 import { ExtendedUser } from '@/next-auth';
 import { useCurrentUser } from '@/hooks/use-current-user';
 import { getCart } from '@/actions/cart';
+import { CartWrapper } from './cartWrapper';
 
 const BakeryView = ({
   data,
@@ -104,7 +105,13 @@ const BakeryView = ({
                 <Separator />
                 <div>
                   {cart?.map((c, i) => (
-                    <div key={i}>{c.product_name}</div>
+                    <CartWrapper
+                      key={c.product_id}
+                      product_name={c.product_name}
+                      price={c.price}
+                      image={c.image}
+                      quantity={c.quantity}
+                    />
                   ))}
                 </div>
               </SheetContent>
