@@ -4,8 +4,6 @@ import { getBakeryItemById } from '@/data/menu';
 import { getUserById } from '@/data/user';
 import { currentUser } from '@/lib/auth';
 import prisma from '@/lib/prisma';
-import * as z from 'zod';
-import { NewCartSchema } from '@/schemas';
 
 export const updateCart = async (itemId: string) => {
   const user = await currentUser();
@@ -32,7 +30,7 @@ export const updateCart = async (itemId: string) => {
   });
 
   if (!existingCart) {
-    await prisma.cart.create({
+    const updatedCart = await prisma.cart.create({
       data: {
         userId: databaseUser.id,
         products: {
@@ -45,6 +43,8 @@ export const updateCart = async (itemId: string) => {
         },
       },
     });
+    console.log('there was no existing cart');
+    return { success: 'Cart Updated' };
   } else {
     const itemIndex = existingCart?.products.findIndex(
       (p) => p.product_id === bakeryItem.id
@@ -55,8 +55,10 @@ export const updateCart = async (itemId: string) => {
         where: { id: itemId },
         data: { quantity: { increment: 1 } },
       });
+      console.log('found item, returning updated cart');
+      return { success: 'Cart Updated' };
     } else {
-      await prisma.cart.update({
+      const updatedCart = await prisma.cart.update({
         where: { id: existingCart.id },
         data: {
           products: {
@@ -64,8 +66,8 @@ export const updateCart = async (itemId: string) => {
           },
         },
       });
+      console.log('did not find item, returning updated cart');
+      return { success: 'Cart Updated' };
     }
   }
-
-  console.log(existingCart?.products[0].product_id);
 };

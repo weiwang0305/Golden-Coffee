@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useTransition } from 'react';
 import { MenuItem } from './types';
 import MenuView from './menuView';
 import Image from 'next/image';
@@ -17,6 +17,7 @@ import {
 import { Separator } from './ui/separator';
 import { updateCart } from '@/actions/cart';
 import { ExtendedUser } from '@/next-auth';
+import { useCurrentUser } from '@/hooks/use-current-user';
 
 const BakeryView = ({
   data,
@@ -26,12 +27,28 @@ const BakeryView = ({
   user?: ExtendedUser;
 }) => {
   const [category, setCategory] = useState('pastries');
+  // const [error, setError] = useState<string | undefined>('');
+  // const [success, setSuccess] = useState<string | undefined>('');
   const [originaldata, setCurrentData] = useState(data);
   const [currentSelection, setCurrentSelection] = useState(originaldata);
+  const [isPending, startTransition] = useTransition();
   const [cart, setCart] = useState(user?.cart);
 
   const handleAddCart = (itemId: string) => {
-    updateCart(itemId);
+    startTransition(() => {
+      updateCart(itemId)
+        .then((data) => {
+          if (data.success) {
+            console.log('success', user);
+          }
+          if (data.error) {
+            console.log('error', user);
+          }
+        })
+        .catch(() => {
+          return null;
+        });
+    });
   };
 
   return (
@@ -61,6 +78,7 @@ const BakeryView = ({
                 <Button
                   variant='outline'
                   className='text-sm bg-black text-white m-2 uppercase p-6'
+                  disabled={isPending}
                   onClick={() => handleAddCart(current.id)}
                 >
                   <span className='tracking-wider'>Add to Cart</span>

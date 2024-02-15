@@ -68,14 +68,3 @@ export const SettingsSchema = z
       path: ['password'],
     }
   );
-
-export const NewCartSchema = z.object({
-  id: z.string(),
-  name: z.string(),
-  description: z.string(),
-  price: z.number(),
-  type: z.string(),
-  image: z.string(),
-  userId: z.string(),
-  quantity: z.optional(z.number()),
-});
