@@ -38,6 +38,11 @@ export const updateCart = async (itemId: string) => {
             {
               product_id: bakeryItem.id,
               quantity: 1,
+              product_name: bakeryItem.name,
+              description: bakeryItem.description,
+              price: bakeryItem.price,
+              type: bakeryItem.type,
+              image: bakeryItem.image,
             },
           ],
         },

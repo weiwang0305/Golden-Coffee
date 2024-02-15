@@ -59,7 +59,7 @@ model Menu {
   description String
   price       Float
   type        String
-  image       String?
+  image       String
   products Products[]
 
 }
@@ -75,8 +75,13 @@ model Products {
   id String @id @default(cuid())
   product_id String
   product Menu @relation(fields:[product_id], references: [id])
-  cartId String
-  cart Cart @relation(fields:[cartId], references: [id])
+  product_name String
+  description String
+  price Float
+  type String
+  image String
+  cart_id String
+  cart Cart? @relation(fields:[cart_id], references: [id])
   quantity Int
 }
 

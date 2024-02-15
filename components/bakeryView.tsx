@@ -91,7 +91,13 @@ const BakeryView = ({
                   <SheetTitle>Your Cart</SheetTitle>
                 </SheetHeader>
                 <Separator />
-                <div></div>
+                <div>
+                  {cart?.map((c,i) => (
+                    <div key={i}>
+                      {c.}
+                      </div>  
+                  ))}
+                </div>
               </SheetContent>
             </Sheet>
           </div>
