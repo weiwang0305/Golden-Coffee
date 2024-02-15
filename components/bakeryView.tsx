@@ -39,7 +39,7 @@ const BakeryView = ({
       updateCart(itemId)
         .then((data) => {
           if (data.success) {
-            console.log('success', user);
+            setCart(user?.cart);
           }
           if (data.error) {
             console.log('error', user);

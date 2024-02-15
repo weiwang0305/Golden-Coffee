@@ -6,6 +6,7 @@ import { getUserById } from './data/user';
 import { getTwoFactorConfirmationByUserId } from './data/two-factor-confirmation';
 import { getAccountByUserId } from './data/account';
 import { getCartByUserId } from './data/cart';
+import { productSchema } from './components/types';
 
 export const {
   handlers: { GET, POST },
@@ -38,9 +39,9 @@ export const {
       return true;
     },
     async session({ session, token }) {
-      console.log({
-        sessionToken: token,
-      });
+      // console.log({
+      //   sessionToken: token,
+      // });
       if (token.sub && session.user) {
         session.user.id = token.sub;
       }
@@ -54,6 +55,7 @@ export const {
         session.user.name = token.name;
         session.user.email = token.email;
         session.user.isOAuth = token.isOAuth as boolean;
+        session.user.cart = token.cart as productSchema[];
       }
 
       return session;

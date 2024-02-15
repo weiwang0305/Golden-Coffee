@@ -30,3 +30,10 @@ export interface DrinkItem {
   image: string;
   type: string;
 }
+
+export interface productSchema {
+  id: string;
+  product_id: string;
+  cartId: string;
+  quantity: number;
+}
