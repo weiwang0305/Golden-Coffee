@@ -1,5 +1,6 @@
 'use server';
 
+import { getCartByUserId } from '@/data/cart';
 import { getBakeryItemById } from '@/data/menu';
 import { getUserById } from '@/data/user';
 import { currentUser } from '@/lib/auth';
@@ -67,7 +68,17 @@ export const updateCart = async (itemId: string) => {
         where: { id: existingCart.id },
         data: {
           products: {
-            create: [{ product_id: bakeryItem.id, quantity: 1 }],
+            create: [
+              {
+                product_id: bakeryItem.id,
+                quantity: 1,
+                product_name: bakeryItem.name,
+                description: bakeryItem.description,
+                price: bakeryItem.price,
+                type: bakeryItem.type,
+                image: bakeryItem.image,
+              },
+            ],
           },
         },
       });
@@ -75,4 +86,9 @@ export const updateCart = async (itemId: string) => {
       return { success: 'Cart Updated' };
     }
   }
+};
+
+export const getCart = async (userId: string) => {
+  const cart = await getCartByUserId(userId);
+  return cart;
 };

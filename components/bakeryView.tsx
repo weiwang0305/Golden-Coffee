@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState, useTransition } from 'react';
-import { MenuItem } from './types';
+import { MenuItem, productSchema } from './types';
 import MenuView from './menuView';
 import Image from 'next/image';
 import { Button } from './ui/button';
@@ -18,6 +18,7 @@ import { Separator } from './ui/separator';
 import { updateCart } from '@/actions/cart';
 import { ExtendedUser } from '@/next-auth';
 import { useCurrentUser } from '@/hooks/use-current-user';
+import { getCart } from '@/actions/cart';
 
 const BakeryView = ({
   data,
@@ -32,14 +33,24 @@ const BakeryView = ({
   const [originaldata, setCurrentData] = useState(data);
   const [currentSelection, setCurrentSelection] = useState(originaldata);
   const [isPending, startTransition] = useTransition();
-  const [cart, setCart] = useState(user?.cart);
+  const [cart, setCart] = useState<productSchema[]>([]);
 
   const handleAddCart = (itemId: string) => {
     startTransition(() => {
       updateCart(itemId)
         .then((data) => {
           if (data.success) {
-            setCart(user?.cart);
+            if (user) {
+              getCart(user.id).then(
+                (data: productSchema[] | null | undefined) => {
+                  if (data) {
+                    setCart(data);
+                  } else {
+                    setCart([]);
+                  }
+                }
+              );
+            }
           }
           if (data.error) {
             console.log('error', user);
@@ -92,10 +103,8 @@ const BakeryView = ({
                 </SheetHeader>
                 <Separator />
                 <div>
-                  {cart?.map((c,i) => (
-                    <div key={i}>
-                      {c.}
-                      </div>  
+                  {cart?.map((c, i) => (
+                    <div key={i}>{c.product_name}</div>
                   ))}
                 </div>
               </SheetContent>

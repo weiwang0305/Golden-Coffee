@@ -34,6 +34,11 @@ export interface DrinkItem {
 export interface productSchema {
   id: string;
   product_id: string;
-  cartId: string;
+  cart_id: string;
   quantity: number;
+  product_name: string;
+  description: string;
+  price: number;
+  type: string;
+  image: string;
 }
