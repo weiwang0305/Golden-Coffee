@@ -37,7 +37,7 @@ export const CartSheetWrapper = ({
         </div>
         <div className='flex flex-col justify-between items-center'>
           <div className='w-[50px] flex justify-center items-center text-sm'>
-            {price}
+            ${price}
           </div>
           <div>
             <CiTrash />
