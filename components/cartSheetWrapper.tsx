@@ -10,7 +10,7 @@ interface CartWrapperProps {
   quantity: number;
 }
 
-export const CartWrapper = ({
+export const CartSheetWrapper = ({
   product_name,
   price,
   image,

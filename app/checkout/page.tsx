@@ -1,9 +1,7 @@
+import { currentUser } from '@/lib/auth';
+
 const CheckoutPage = () => {
-  return (
-    <div>
-      Checkout Page
-      <div>WIP... Please Check back later</div>
-    </div>
-  );
+  const user = currentUser();
+  return <div></div>;
 };
 export default CheckoutPage;

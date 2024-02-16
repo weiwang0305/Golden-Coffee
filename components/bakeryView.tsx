@@ -20,7 +20,7 @@ import { updateCart } from '@/actions/cart';
 import { ExtendedUser } from '@/next-auth';
 import { useCurrentUser } from '@/hooks/use-current-user';
 import { getCart } from '@/actions/cart';
-import { CartWrapper } from './cartWrapper';
+import { CartSheetWrapper } from './';
 import Link from 'next/link';
 
 const BakeryView = ({
@@ -31,13 +31,10 @@ const BakeryView = ({
   user?: ExtendedUser;
 }) => {
   const [category, setCategory] = useState('pastries');
-  // const [error, setError] = useState<string | undefined>('');
-  // const [success, setSuccess] = useState<string | undefined>('');
   const [originaldata, setCurrentData] = useState(data);
   const [currentSelection, setCurrentSelection] = useState(originaldata);
   const [isPending, startTransition] = useTransition();
   const [cart, setCart] = useState<productSchema[]>([]);
-  const [total, setTotal] = useState(0);
 
   const handleAddCart = (itemId: string) => {
     startTransition(() => {
@@ -113,7 +110,7 @@ const BakeryView = ({
                 <Separator />
                 <div>
                   {cart?.map((c, i) => (
-                    <CartWrapper
+                    <CartSheetWrapper
                       key={c.product_id}
                       product_name={c.product_name}
                       price={c.price}
