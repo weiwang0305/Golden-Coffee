@@ -20,6 +20,7 @@ import { ExtendedUser } from '@/next-auth';
 import { useCurrentUser } from '@/hooks/use-current-user';
 import { getCart } from '@/actions/cart';
 import { CartWrapper } from './cartWrapper';
+import Link from 'next/link';
 
 const BakeryView = ({
   data,
@@ -98,7 +99,7 @@ const BakeryView = ({
                   <span>{current.price}</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent>
+              <SheetContent className='overflow-scroll'>
                 <SheetHeader>
                   <SheetTitle>Your Cart</SheetTitle>
                 </SheetHeader>
@@ -114,6 +115,11 @@ const BakeryView = ({
                     />
                   ))}
                 </div>
+                {!isPending && (
+                  <Button>
+                    <Link href='/checkout'>Checkout</Link>
+                  </Button>
+                )}
               </SheetContent>
             </Sheet>
           </div>
