@@ -1,9 +1,9 @@
 'use client';
 
-import { useEffect, useState, useTransition, useMemo } from 'react';
+import { useState, useTransition, useMemo } from 'react';
 import { MenuItem, productSchema } from './types';
 import MenuView from './menuView';
-import Image from 'next/image';
+
 import { Button } from './ui/button';
 import {
   Sheet,
@@ -18,7 +18,6 @@ import {
 import { Separator } from './ui/separator';
 import { updateCart } from '@/actions/cart';
 import { ExtendedUser } from '@/next-auth';
-import { useCurrentUser } from '@/hooks/use-current-user';
 import { getCart } from '@/actions/cart';
 import { CartSheetWrapper } from './cartSheetWrapper';
 

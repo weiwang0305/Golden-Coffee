@@ -20,24 +20,30 @@ export const CartTable = ({
   return (
     <tr>
       <td>
-        <div className='relative w-[70px] h-[70px]'>
-          <Image
-            src={`/menu/${image}.jpg`}
-            alt={`${product_name}`}
-            sizes='100vw'
-            fill
-          ></Image>
-          {product_name}
+        <div>
+          {/* <div className='relative w-[70px] h-[70px]'>
+            <Image
+              src={`/menu/${image}.jpg`}
+              alt={`${product_name}`}
+              sizes='100vw'
+              fill
+            ></Image>
+          </div> */}
+          <div className='flex justify-center items-center w-full text-sm'>
+            {product_name}
+          </div>
         </div>
       </td>
       <td>
-        <div>{description}</div>
+        <div className='text-sm flex justify-start items-center w-full'>
+          {description}
+        </div>
       </td>
       <td>
-        <div>{price}</div>
+        <div className='text-sm text-center'>{price}</div>
       </td>
       <td>
-        <div>{quantity}</div>
+        <div className='text-center'>{quantity}</div>
       </td>
     </tr>
   );
