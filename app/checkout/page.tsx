@@ -1,8 +1,11 @@
-const CheckoutPage = () => {
+import { currentUser } from '@/lib/auth';
+import { CartWrapper } from '@/components/cartWrapper';
+
+const CheckoutPage = async () => {
+  const user = await currentUser();
   return (
     <div>
-      Checkout Page
-      <div>WIP... Please Check back later</div>
+      <CartWrapper user={user} />
     </div>
   );
 };
