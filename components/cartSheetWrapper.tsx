@@ -3,7 +3,7 @@ import { Separator } from './ui/separator';
 import { Button } from './ui/button';
 import { CiTrash } from 'react-icons/ci';
 
-interface CartWrapperProps {
+interface CartSheetWrapperProps {
   product_name: string;
   price: number;
   image: string;
@@ -15,7 +15,7 @@ export const CartSheetWrapper = ({
   price,
   image,
   quantity,
-}: CartWrapperProps) => {
+}: CartSheetWrapperProps) => {
   return (
     <>
       <div className='m-2 flex justify-between w-full'>

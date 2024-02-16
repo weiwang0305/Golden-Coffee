@@ -20,7 +20,8 @@ import { updateCart } from '@/actions/cart';
 import { ExtendedUser } from '@/next-auth';
 import { useCurrentUser } from '@/hooks/use-current-user';
 import { getCart } from '@/actions/cart';
-import { CartSheetWrapper } from './';
+import { CartSheetWrapper } from './cartSheetWrapper';
+
 import Link from 'next/link';
 
 const BakeryView = ({
