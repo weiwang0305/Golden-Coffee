@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useTransition } from 'react';
+import { useEffect, useState, useTransition, useMemo } from 'react';
 import { MenuItem, productSchema } from './types';
 import MenuView from './menuView';
 import Image from 'next/image';
@@ -13,6 +13,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetDescription,
+  SheetFooter,
 } from './ui/sheet';
 import { Separator } from './ui/separator';
 import { updateCart } from '@/actions/cart';
@@ -36,6 +37,7 @@ const BakeryView = ({
   const [currentSelection, setCurrentSelection] = useState(originaldata);
   const [isPending, startTransition] = useTransition();
   const [cart, setCart] = useState<productSchema[]>([]);
+  const [total, setTotal] = useState(0);
 
   const handleAddCart = (itemId: string) => {
     startTransition(() => {
@@ -63,6 +65,11 @@ const BakeryView = ({
         });
     });
   };
+  const calculateTotal = useMemo(() => {
+    return cart.reduce((total, item) => {
+      return total + item.price * item.quantity;
+    }, 0);
+  }, [cart]);
 
   return (
     <div className='text-center m-auto'>
@@ -114,12 +121,17 @@ const BakeryView = ({
                       quantity={c.quantity}
                     />
                   ))}
+                  <div>Estimated Total: {calculateTotal}</div>
                 </div>
-                {!isPending && (
-                  <Button>
-                    <Link href='/checkout'>Checkout</Link>
-                  </Button>
-                )}
+                <SheetFooter>
+                  <SheetClose asChild>
+                    <div className='w-full'>
+                      <button className='w-full outline mt-5 bg-black text-white p-2'>
+                        <Link href='/checkout'>Checkout</Link>
+                      </button>
+                    </div>
+                  </SheetClose>
+                </SheetFooter>
               </SheetContent>
             </Sheet>
           </div>
