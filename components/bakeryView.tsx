@@ -1,8 +1,15 @@
 'use client';
 
-import { useState, useTransition, useMemo } from 'react';
+import {
+  useState,
+  useTransition,
+  useMemo,
+  useCallback,
+  useEffect,
+} from 'react';
 import { MenuItem, productSchema } from './types';
 import MenuView from './menuView';
+import { incrementCartItem } from '@/actions/cart';
 
 import { Button } from './ui/button';
 import {
@@ -22,6 +29,7 @@ import { getCart } from '@/actions/cart';
 import { CartSheetWrapper } from './cartSheetWrapper';
 
 import Link from 'next/link';
+import { debounce } from 'lodash';
 
 const BakeryView = ({
   data,
@@ -54,7 +62,7 @@ const BakeryView = ({
             }
           }
           if (data.error) {
-            console.log('error', user);
+            console.log('error', data.error);
           }
         })
         .catch(() => {
@@ -67,6 +75,29 @@ const BakeryView = ({
       return total + item.price * item.quantity;
     }, 0);
   }, [cart]);
+
+  const debouncedHandleIncrement = useCallback(
+    debounce((product_id: string) => {
+      incrementCartItem(product_id).then((data) => {
+        if (data.success) {
+          if (user) {
+            getCart(user.id).then(
+              (data: productSchema[] | undefined | null) => {
+                if (data) {
+                  setCart(data);
+                } else {
+                  setCart([]);
+                }
+              }
+            );
+          }
+        } else if (data.error) {
+          console.log(data.error);
+        }
+      });
+    }, 300),
+    [user, getCart, setCart]
+  );
 
   return (
     <div className='text-center m-auto'>
@@ -113,9 +144,11 @@ const BakeryView = ({
                     <CartSheetWrapper
                       key={c.product_id}
                       product_name={c.product_name}
+                      product_id={c.product_id}
                       price={c.price}
                       image={c.image}
                       quantity={c.quantity}
+                      debouncedHandleIncrement={debouncedHandleIncrement}
                     />
                   ))}
                   <div>Estimated Total: {calculateTotal}</div>
