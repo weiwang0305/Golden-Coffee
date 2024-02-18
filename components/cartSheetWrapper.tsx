@@ -10,7 +10,7 @@ interface CartSheetWrapperProps {
   price: number;
   image: string;
   quantity: number;
-  debouncedHandleIncrement: (product_id: string) => void;
+  handleIncrement: (product_id: string) => void;
 }
 
 export const CartSheetWrapper = ({
@@ -19,7 +19,7 @@ export const CartSheetWrapper = ({
   price,
   image,
   quantity,
-  debouncedHandleIncrement,
+  handleIncrement,
 }: CartSheetWrapperProps) => {
   return (
     <>
@@ -37,10 +37,7 @@ export const CartSheetWrapper = ({
           <div className='outline m-2 h-1/2 w-[100px] flex justify-center items-center'>
             <Button variant='ghost'>-</Button>
             <span className='p-1 text-xs'>{quantity}</span>
-            <Button
-              variant='ghost'
-              onClick={() => debouncedHandleIncrement(product_id)}
-            >
+            <Button variant='ghost' onClick={() => handleIncrement(product_id)}>
               +
             </Button>
           </div>
