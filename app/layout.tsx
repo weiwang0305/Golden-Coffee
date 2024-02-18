@@ -84,7 +84,7 @@ export default async function RootLayout({
                         </Link>
                       </SheetClose>
                       <SheetClose asChild>
-                        <Link href='/account/cart' className='mx-2'>
+                        <Link href='/checkout' className='mx-2'>
                           <FaShoppingCart size={17} />
                         </Link>
                       </SheetClose>
@@ -105,7 +105,9 @@ export default async function RootLayout({
                         <UserButton />
                       </div>
                       <div>
-                        <FaShoppingCart size={17} />
+                        <Link href='/checkout'>
+                          <FaShoppingCart size={17} />
+                        </Link>
                       </div>
                     </div>
                   )}
@@ -115,7 +117,10 @@ export default async function RootLayout({
 
             {!session?.user && (
               <>
-                <Link href='/account/login' className='hidden md:block'>
+                <Link
+                  href='/account/login'
+                  className='hidden md:block cursor-pointer'
+                >
                   <Avatar>
                     <AvatarImage src={session?.user.image || ''} />
                     <AvatarFallback className='bg-white'>
