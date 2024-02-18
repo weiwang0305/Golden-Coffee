@@ -4,7 +4,14 @@ export const getCartByUserId = async (userId: string) => {
   try {
     const cart = await prisma.cart.findFirst({
       where: { userId },
-      include: { products: true },
+      include: {
+        products: {
+          orderBy: {
+            product_name: 'asc',
+          },
+        },
+      },
+      orderBy: {},
     });
     return cart?.products;
   } catch {

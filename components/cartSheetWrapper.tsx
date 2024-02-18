@@ -2,19 +2,26 @@ import Image from 'next/image';
 import { Separator } from './ui/separator';
 import { Button } from './ui/button';
 import { CiTrash } from 'react-icons/ci';
+import { MouseEventHandler } from 'react';
 
 interface CartSheetWrapperProps {
   product_name: string;
+  product_id: string;
   price: number;
   image: string;
   quantity: number;
+  debouncedHandleIncrement: (product_id: string) => void;
+  debouncedHandleDecrement: (product_id: string) => void;
 }
 
 export const CartSheetWrapper = ({
   product_name,
+  product_id,
   price,
   image,
   quantity,
+  debouncedHandleIncrement,
+  debouncedHandleDecrement,
 }: CartSheetWrapperProps) => {
   return (
     <>
@@ -30,9 +37,19 @@ export const CartSheetWrapper = ({
         <div className='flex flex-col justify-center items-center w-[100px]'>
           <span className='text-sm text-center'>{product_name}</span>
           <div className='outline m-2 h-1/2 w-[100px] flex justify-center items-center'>
-            <Button variant='ghost'>-</Button>
+            <Button
+              variant='ghost'
+              onClick={() => debouncedHandleDecrement(product_id)}
+            >
+              -
+            </Button>
             <span className='p-1 text-xs'>{quantity}</span>
-            <Button variant='ghost'>+</Button>
+            <Button
+              variant='ghost'
+              onClick={() => debouncedHandleIncrement(product_id)}
+            >
+              +
+            </Button>
           </div>
         </div>
         <div className='flex flex-col justify-between items-center'>

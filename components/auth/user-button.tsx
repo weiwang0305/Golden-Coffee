@@ -24,20 +24,20 @@ export const UserButton = () => {
       <DropdownMenuTrigger asChild>
         <Avatar>
           <AvatarImage src={user?.image || undefined} />
-          <AvatarFallback className='bg-white'>
+          <AvatarFallback className='bg-white cursor-pointer'>
             <FaUser size={17}></FaUser>
           </AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <SettingButton>
-          <DropdownMenuItem>
+          <DropdownMenuItem className='cursor-pointer'>
             <IoSettingsOutline className='h-4 w-4 mr-2' />
             Settings
           </DropdownMenuItem>
         </SettingButton>
         <LogoutButton>
-          <DropdownMenuItem>
+          <DropdownMenuItem className='cursor-pointer'>
             <ExitIcon className='h-4 w-4 mr-2' />
             Logout
           </DropdownMenuItem>

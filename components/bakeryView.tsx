@@ -1,8 +1,9 @@
 'use client';
 
-import { useState, useTransition, useMemo } from 'react';
+import { useState, useTransition, useMemo, useCallback } from 'react';
 import { MenuItem, productSchema } from './types';
 import MenuView from './menuView';
+import { incrementCartItem, decrementCartItem } from '@/actions/cart';
 
 import { Button } from './ui/button';
 import {
@@ -22,6 +23,7 @@ import { getCart } from '@/actions/cart';
 import { CartSheetWrapper } from './cartSheetWrapper';
 
 import Link from 'next/link';
+import { debounce } from 'lodash';
 
 const BakeryView = ({
   data,
@@ -68,6 +70,54 @@ const BakeryView = ({
     }, 0);
   }, [cart]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const debouncedHandleIncrement = useCallback(
+    debounce((product_id: string) => {
+      incrementCartItem(product_id).then((data) => {
+        if (data.success) {
+          if (user) {
+            getCart(user.id).then(
+              (data: productSchema[] | undefined | null) => {
+                if (data) {
+                  setCart(data);
+                } else {
+                  setCart([]);
+                }
+              }
+            );
+          }
+        } else if (data.error) {
+          console.log(data.error);
+        }
+      });
+    }, 300),
+    [user, getCart, setCart]
+  );
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const debouncedHandleDecrement = useCallback(
+    debounce((product_id: string) => {
+      decrementCartItem(product_id).then((data) => {
+        if (data.success) {
+          if (user) {
+            getCart(user.id).then(
+              (data: productSchema[] | undefined | null) => {
+                if (data) {
+                  setCart(data);
+                } else {
+                  setCart([]);
+                }
+              }
+            );
+          }
+        } else if (data.error) {
+          console.log(data.error);
+        }
+      });
+    }, 300),
+    [user, getCart, setCart]
+  );
+
   return (
     <div className='text-center m-auto'>
       <div>
@@ -113,9 +163,12 @@ const BakeryView = ({
                     <CartSheetWrapper
                       key={c.product_id}
                       product_name={c.product_name}
+                      product_id={c.product_id}
                       price={c.price}
                       image={c.image}
                       quantity={c.quantity}
+                      debouncedHandleIncrement={debouncedHandleIncrement}
+                      debouncedHandleDecrement={debouncedHandleDecrement}
                     />
                   ))}
                   <div>Estimated Total: {calculateTotal}</div>

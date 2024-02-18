@@ -5,6 +5,7 @@ import { getBakeryItemById } from '@/data/menu';
 import { getUserById } from '@/data/user';
 import { currentUser } from '@/lib/auth';
 import prisma from '@/lib/prisma';
+import { revalidatePath } from 'next/cache';
 
 export const updateCart = async (itemId: string) => {
   const user = await currentUser();
@@ -91,4 +92,58 @@ export const updateCart = async (itemId: string) => {
 export const getCart = async (userId: string) => {
   const cart = await getCartByUserId(userId);
   return cart;
+};
+
+export const incrementCartItem = async (itemId: string) => {
+  const user = await currentUser();
+  if (!user) {
+    return { error: 'Please log in' };
+  }
+  const existingCart = await prisma.cart.findFirst({
+    where: { userId: user.id },
+    include: { products: true },
+  });
+  if (!existingCart) {
+    return { error: 'Cart does not exist' };
+  }
+
+  const itemIndex = existingCart.products.findIndex(
+    (p) => p.product_id === itemId
+  );
+  if (itemIndex > -1) {
+    const id = existingCart.products[itemIndex].id;
+    await prisma.products.update({
+      where: { id },
+      data: { quantity: { increment: 1 } },
+    });
+  }
+  console.log(itemIndex);
+  return { success: 'Cart Updated' };
+};
+
+export const decrementCartItem = async (itemId: string) => {
+  const user = await currentUser();
+  if (!user) {
+    return { error: 'Please log in' };
+  }
+  const existingCart = await prisma.cart.findFirst({
+    where: { userId: user.id },
+    include: { products: true },
+  });
+  if (!existingCart) {
+    return { error: 'Cart does not exist' };
+  }
+
+  const itemIndex = existingCart.products.findIndex(
+    (p) => p.product_id === itemId
+  );
+  if (itemIndex > -1) {
+    const id = existingCart.products[itemIndex].id;
+    await prisma.products.update({
+      where: { id },
+      data: { quantity: { increment: -1 } },
+    });
+  }
+  console.log(itemIndex);
+  return { success: 'Cart Updated' };
 };
