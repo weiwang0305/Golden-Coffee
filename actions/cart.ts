@@ -120,3 +120,30 @@ export const incrementCartItem = async (itemId: string) => {
   console.log(itemIndex);
   return { success: 'Cart Updated' };
 };
+
+export const decrementCartItem = async (itemId: string) => {
+  const user = await currentUser();
+  if (!user) {
+    return { error: 'Please log in' };
+  }
+  const existingCart = await prisma.cart.findFirst({
+    where: { userId: user.id },
+    include: { products: true },
+  });
+  if (!existingCart) {
+    return { error: 'Cart does not exist' };
+  }
+
+  const itemIndex = existingCart.products.findIndex(
+    (p) => p.product_id === itemId
+  );
+  if (itemIndex > -1) {
+    const id = existingCart.products[itemIndex].id;
+    await prisma.products.update({
+      where: { id },
+      data: { quantity: { increment: -1 } },
+    });
+  }
+  console.log(itemIndex);
+  return { success: 'Cart Updated' };
+};

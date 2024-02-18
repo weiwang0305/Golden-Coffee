@@ -1,16 +1,9 @@
 'use client';
 
-import {
-  useState,
-  useTransition,
-  useMemo,
-  useCallback,
-  useRef,
-  useEffect,
-} from 'react';
+import { useState, useTransition, useMemo, useCallback } from 'react';
 import { MenuItem, productSchema } from './types';
 import MenuView from './menuView';
-import { incrementCartItem } from '@/actions/cart';
+import { incrementCartItem, decrementCartItem } from '@/actions/cart';
 
 import { Button } from './ui/button';
 import {
@@ -31,11 +24,6 @@ import { CartSheetWrapper } from './cartSheetWrapper';
 
 import Link from 'next/link';
 import { debounce } from 'lodash';
-
-interface DebouncedFunction extends Function {
-  (productId: string): void;
-  cancel: () => void;
-}
 
 const BakeryView = ({
   data,
@@ -82,39 +70,53 @@ const BakeryView = ({
     }, 0);
   }, [cart]);
 
-  const debouncedHandleIncrementRef = useRef<DebouncedFunction | null>(null);
-
-  useEffect(() => {
-    // Define the debounced function inside the useEffect
-    debouncedHandleIncrementRef.current = debounce((productId: string) => {
-      incrementCartItem(productId).then((data) => {
-        if (data.success && user) {
-          getCart(user.id).then((data: productSchema[] | undefined | null) => {
-            if (data) {
-              setCart(data);
-            } else {
-              setCart([]);
-            }
-          });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const debouncedHandleIncrement = useCallback(
+    debounce((product_id: string) => {
+      incrementCartItem(product_id).then((data) => {
+        if (data.success) {
+          if (user) {
+            getCart(user.id).then(
+              (data: productSchema[] | undefined | null) => {
+                if (data) {
+                  setCart(data);
+                } else {
+                  setCart([]);
+                }
+              }
+            );
+          }
         } else if (data.error) {
           console.log(data.error);
         }
       });
-    }, 400);
+    }, 300),
+    [user, getCart, setCart]
+  );
 
-    // Cleanup function to cancel the debounce on component unmount or when dependencies change
-    return () => {
-      if (debouncedHandleIncrementRef.current) {
-        debouncedHandleIncrementRef.current.cancel();
-      }
-    };
-  }, [user, getCart, setCart]); // Dependencies that, when changed, will re-create the debounced function
-
-  // Example usage in a handler function
-  const handleIncrement = (productId: string) => {
-    // Access the current debounced function through the ref
-    debouncedHandleIncrementRef.current?.(productId);
-  };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const debouncedHandleDecrement = useCallback(
+    debounce((product_id: string) => {
+      decrementCartItem(product_id).then((data) => {
+        if (data.success) {
+          if (user) {
+            getCart(user.id).then(
+              (data: productSchema[] | undefined | null) => {
+                if (data) {
+                  setCart(data);
+                } else {
+                  setCart([]);
+                }
+              }
+            );
+          }
+        } else if (data.error) {
+          console.log(data.error);
+        }
+      });
+    }, 300),
+    [user, getCart, setCart]
+  );
 
   return (
     <div className='text-center m-auto'>
@@ -165,7 +167,8 @@ const BakeryView = ({
                       price={c.price}
                       image={c.image}
                       quantity={c.quantity}
-                      handleIncrement={handleIncrement}
+                      debouncedHandleIncrement={debouncedHandleIncrement}
+                      debouncedHandleDecrement={debouncedHandleDecrement}
                     />
                   ))}
                   <div>Estimated Total: {calculateTotal}</div>
