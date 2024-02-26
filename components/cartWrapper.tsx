@@ -30,6 +30,30 @@ export const CartWrapper = ({ user }: CartWrapperProps) => {
     }, 0);
   }, [cart]);
 
+  const handleCheckout = async () => {
+    try {
+      console.log(cart);
+      await fetch('http://localhost:3000/api/checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ cart: cart }),
+      })
+        .then((response) => {
+          return response.json();
+        })
+        .then((response) => {
+          console.log(response);
+          if (response.url) {
+            //console.log(response.url)
+          }
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <>
       <div className='flex justify-center items-center p-10'>
@@ -90,7 +114,10 @@ export const CartWrapper = ({ user }: CartWrapperProps) => {
         </div>
       </div>
       <div className='w-5/6 m-auto p-5'>
-        <button className='w-full bg-black text-white p-3 uppercase'>
+        <button
+          className='w-full bg-black text-white p-3 uppercase'
+          onClick={handleCheckout}
+        >
           Continue to Checkout
         </button>
       </div>
