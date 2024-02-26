@@ -171,14 +171,17 @@ const BakeryView = ({
                       debouncedHandleDecrement={debouncedHandleDecrement}
                     />
                   ))}
-                  <div>Estimated Total: {calculateTotal}</div>
+                  <div>Estimated Total: ${calculateTotal}</div>
                 </div>
                 <SheetFooter>
                   <SheetClose asChild>
-                    <div className='w-full'>
-                      <button className='w-full outline mt-5 bg-black text-white p-2'>
-                        <Link href='/checkout'>Checkout</Link>
-                      </button>
+                    <div className='w-full relative'>
+                      <Link
+                        className='bg-black text-white px-3 py-2 absolute'
+                        href='/checkout'
+                      >
+                        Checkout
+                      </Link>
                     </div>
                   </SheetClose>
                 </SheetFooter>
