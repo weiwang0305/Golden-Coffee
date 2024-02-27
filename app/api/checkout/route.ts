@@ -18,8 +18,7 @@ export const POST = async (request: any) => {
     for (const product of cart) {
       console.log(product);
       const stripeProduct = await activeProducts?.find(
-        (stripeProduct: stripeProductSchema) =>
-          stripeProduct.name === product.product_name
+        (prod: stripeProductSchema) => prod.name === product.product_name
       );
 
       if (stripeProduct === undefined) {
@@ -35,6 +34,29 @@ export const POST = async (request: any) => {
   } catch (error) {
     console.error('Error in creating a new product', error);
   }
+
+  activeProducts = await getActiveProducts();
+  let stripeItems = [];
+
+  for (const product of cart) {
+    const stripeProduct = activeProducts?.find(
+      (prod: stripeProductSchema) => prod.name === product.product_name
+    );
+
+    if (stripeProduct) {
+      stripeItems.push({
+        price: stripeProduct.default_price,
+        quantity: product.quantity,
+      });
+    }
+  }
+
+  const session = await stripe.checkout.sessions.create({
+    line_items: stripeItems,
+    mode: 'payment',
+    success_url: 'http://localhost:3000/success',
+    cancel_url: 'http://localhost:3000/cancel',
+  });
 
   return NextResponse.json({ url: '' });
 };
