@@ -6,6 +6,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { productSchema } from './types';
 import { getCart } from '@/actions/cart';
 import { Button } from './ui/button';
+import { navigateSuccess } from '@/actions/navigate';
 
 interface CartWrapperProps {
   user?: ExtendedUser;
@@ -44,9 +45,8 @@ export const CartWrapper = ({ user }: CartWrapperProps) => {
           return response.json();
         })
         .then((response) => {
-          console.log(response);
           if (response.url) {
-            //console.log(response.url)
+            navigateSuccess(response.url);
           }
         });
     } catch (error) {

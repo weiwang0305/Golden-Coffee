@@ -9,3 +9,7 @@ export const navigateLogin = async () => {
 export const navigateSetting = async () => {
   redirect('/account/settings');
 };
+
+export const navigateSuccess = async (url: string) => {
+  redirect(`${url}`);
+};

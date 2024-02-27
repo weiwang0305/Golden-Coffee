@@ -58,5 +58,7 @@ export const POST = async (request: any) => {
     cancel_url: 'http://localhost:3000/cancel',
   });
 
-  return NextResponse.json({ url: '' });
+  console.log(session);
+
+  return NextResponse.json({ url: session.url });
 };
