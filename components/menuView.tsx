@@ -14,6 +14,7 @@ const MenuView = ({ id, name, description, price, type, image }: MenuItem) => {
           sizes='(min-width: 600px) 434px, 75vw'
           quality={100}
           className='p-2'
+          priority
         />
       </div>
       <p className='text-2xl font-bold tracking-wider'>{name}</p>

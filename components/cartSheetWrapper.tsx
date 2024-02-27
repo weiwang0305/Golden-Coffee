@@ -30,8 +30,9 @@ export const CartSheetWrapper = ({
           <Image
             alt={`${product_name}`}
             src={`/menu/${image}.jpg`}
-            sizes='100vw'
+            sizes='(min-width: 600px) 434px, 75vw'
             fill
+            priority
           ></Image>
         </div>
         <div className='flex flex-col justify-center items-center w-[100px]'>
