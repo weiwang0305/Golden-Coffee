@@ -42,3 +42,24 @@ export interface productSchema {
   type: string;
   image: string;
 }
+
+export interface stripeProductSchema {
+  id: string;
+  object: string;
+  active: boolean;
+  created: Date;
+  default_price: string | null;
+  description: string | null;
+  images: string[] | null;
+  features: string[] | null;
+  livemode: boolean;
+  metadata: {};
+  name: string;
+  package_dimensions: string | null;
+  shippable: string | null;
+  statement_descritor: string | null;
+  tax_code: string | null;
+  unit_label: string | null;
+  updated: Date;
+  url: string | null;
+}

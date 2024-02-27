@@ -6,6 +6,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { productSchema } from './types';
 import { getCart } from '@/actions/cart';
 import { Button } from './ui/button';
+import { navigateSuccess } from '@/actions/navigate';
 
 interface CartWrapperProps {
   user?: ExtendedUser;
@@ -29,6 +30,29 @@ export const CartWrapper = ({ user }: CartWrapperProps) => {
       return total + item.price * item.quantity;
     }, 0);
   }, [cart]);
+
+  const handleCheckout = async () => {
+    try {
+      console.log(cart);
+      await fetch('http://localhost:3000/api/checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ cart: cart }),
+      })
+        .then((response) => {
+          return response.json();
+        })
+        .then((response) => {
+          if (response.url) {
+            navigateSuccess(response.url);
+          }
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <>
@@ -90,7 +114,10 @@ export const CartWrapper = ({ user }: CartWrapperProps) => {
         </div>
       </div>
       <div className='w-5/6 m-auto p-5'>
-        <button className='w-full bg-black text-white p-3 uppercase'>
+        <button
+          className='w-full bg-black text-white p-3 uppercase'
+          onClick={handleCheckout}
+        >
           Continue to Checkout
         </button>
       </div>

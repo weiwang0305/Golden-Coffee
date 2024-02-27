@@ -5,7 +5,6 @@ import { getBakeryItemById } from '@/data/menu';
 import { getUserById } from '@/data/user';
 import { currentUser } from '@/lib/auth';
 import prisma from '@/lib/prisma';
-import { revalidatePath } from 'next/cache';
 
 export const updateCart = async (itemId: string) => {
   const user = await currentUser();
