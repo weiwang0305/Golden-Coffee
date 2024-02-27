@@ -11,7 +11,7 @@ const MenuView = ({ id, name, description, price, type, image }: MenuItem) => {
           src={`/menu/${image}.jpg`}
           alt={`${name} picture`}
           fill
-          sizes='100vw'
+          sizes='(min-width: 600px) 434px, 75vw'
           quality={100}
           className='p-2'
         />
