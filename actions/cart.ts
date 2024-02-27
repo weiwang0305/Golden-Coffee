@@ -49,7 +49,7 @@ export const updateCart = async (itemId: string) => {
         },
       },
     });
-    console.log('there was no existing cart');
+    // console.log('there was no existing cart');
     return { success: 'Cart Updated' };
   } else {
     const itemIndex = existingCart?.products.findIndex(
@@ -61,7 +61,7 @@ export const updateCart = async (itemId: string) => {
         where: { id: itemId },
         data: { quantity: { increment: 1 } },
       });
-      console.log('found item, returning updated cart');
+      // console.log('found item, returning updated cart');
       return { success: 'Cart Updated' };
     } else {
       const updatedCart = await prisma.cart.update({
@@ -82,7 +82,7 @@ export const updateCart = async (itemId: string) => {
           },
         },
       });
-      console.log('did not find item, returning updated cart');
+      // console.log('did not find item, returning updated cart');
       return { success: 'Cart Updated' };
     }
   }
@@ -116,7 +116,7 @@ export const incrementCartItem = async (itemId: string) => {
       data: { quantity: { increment: 1 } },
     });
   }
-  console.log(itemIndex);
+  // console.log(itemIndex);
   return { success: 'Cart Updated' };
 };
 
@@ -143,6 +143,6 @@ export const decrementCartItem = async (itemId: string) => {
       data: { quantity: { increment: -1 } },
     });
   }
-  console.log(itemIndex);
+  // console.log(itemIndex);
   return { success: 'Cart Updated' };
 };

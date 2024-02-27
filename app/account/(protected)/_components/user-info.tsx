@@ -8,7 +8,7 @@ interface UserInfoProps {
 }
 
 export const UserInfo = ({ user, label }: UserInfoProps) => {
-  console.log(user?.isTwoFactorEnabled);
+  // console.log(user?.isTwoFactorEnabled);
   return (
     <div>
       <Card className='w-1/2 min-w-[400px] md:min-w-[600px] md:max-w-[600px] mb-10 shadow-md'>

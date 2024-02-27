@@ -18,12 +18,12 @@ const ContactPageView = () => {
       result.push(inputs[i].value);
     }
     result.push(message?.value);
-    console.log(result);
+    // console.log(result);
   };
 
   return (
     <div className='w-full h-full'>
-      <div className='w-full h-[400px] md:h-[600px] md:w-4/5 md:m-auto relative'>
+      <div className='w-full h-[400px]  md:h-[600px] md:w-4/5 md:m-auto relative'>
         <Image
           src={'/contact-page-image.jpg'}
           alt='cafe background'
@@ -44,7 +44,7 @@ const ContactPageView = () => {
         </p>
       </div>
 
-      <div className='w-full h-full flex justify-center'>
+      <div className='w-full h-full flex justify-center bg-gray-200 p-5'>
         <form
           className='grid md:grid-cols-[400px_400px] md:grid-rows-[20px_20px_360px] gap-7 grid-cols-[400px] grid-rows-[20px_20px_20px_20px_360px]'
           onSubmit={handleContactSubmit}

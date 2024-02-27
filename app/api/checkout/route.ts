@@ -16,7 +16,7 @@ export const POST = async (request: any) => {
 
   try {
     for (const product of cart) {
-      console.log(product);
+      // console.log(product);
       const stripeProduct = await activeProducts?.find(
         (prod: stripeProductSchema) => prod.name === product.product_name
       );
@@ -58,7 +58,7 @@ export const POST = async (request: any) => {
     cancel_url: 'http://localhost:3000/cancel',
   });
 
-  console.log(session);
+  // console.log(session);
 
   return NextResponse.json({ url: session.url });
 };

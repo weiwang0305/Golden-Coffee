@@ -24,6 +24,10 @@ const CoffeeView = ({
             from different roasst types and origins, expertly roasted in small
             batches and shipped fresh weekly.
           </p>
+          <p className='w-2/4 font-bold uppercase m-auto p-5'>
+            **Our drinks are important to us, so we do not allow drinks to be
+            ordered online. Sorry for the inconvenience.**
+          </p>
         </div>
       </div>
       <div className='flex justify-center p-2 mb-5'>

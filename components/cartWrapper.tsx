@@ -33,7 +33,7 @@ export const CartWrapper = ({ user }: CartWrapperProps) => {
 
   const handleCheckout = async () => {
     try {
-      console.log(cart);
+      // console.log(cart);
       await fetch('http://localhost:3000/api/checkout', {
         method: 'POST',
         headers: {

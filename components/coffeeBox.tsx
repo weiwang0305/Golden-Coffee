@@ -13,18 +13,6 @@ const CoffeeBox = ({
   image,
   type,
 }: DrinkItem) => {
-  console.log(
-    id,
-    name,
-    description,
-    hotprice,
-    coldsmprice,
-    coldlgprice,
-    rating,
-    votes,
-    image,
-    type
-  );
   return (
     <div className='mb-10 text-center'>
       <div className='h-[333px] w-4/5 relative m-auto max-w-[450px] overflow-hidden'>
@@ -32,10 +20,10 @@ const CoffeeBox = ({
           src={`/coffee/${image}.jpg`}
           alt={`${name} picture`}
           fill
-          sizes='100vw'
+          sizes='(min-width: 600px) 434px, 75vw'
           quality={100}
-          objectFit='cover'
           className='p-2'
+          priority
         />
       </div>
 
@@ -51,7 +39,7 @@ const CoffeeBox = ({
           alt='Star-filled image'
           width={20}
           height={25}
-          className='m-0'
+          className='m-0 w-auto h-auto'
         />
         <span className='items-center'></span>
         {rating}
