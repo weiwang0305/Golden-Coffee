@@ -7,7 +7,7 @@ const ServerPage = () => {
   const user = useCurrentUser();
   return (
     <div>
-      <UserInfo user={user} label='Client Component' />
+      <UserInfo user={user} label='User Info' />
     </div>
   );
 };
