@@ -62,6 +62,10 @@ Once the user clicks the checkout button, they will be redirected to the main ch
 
 ## In Development
 
+- [ ] Add delete function to cart
+- [ ] Automatically delete product from cart if quantity goes to 0
+- [ ] Add proper function to receive message from contact page
+
 [contributors-shield]: https://img.shields.io/github/contributors/open-source-labs/Docketeer.svg?style=for-the-badge
 [contributors-url]: https://github.com/open-source-labs/Docketeer/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/open-source-labs/Docketeer.svg?style=for-the-badge
