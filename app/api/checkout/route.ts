@@ -54,8 +54,8 @@ export const POST = async (request: any) => {
   const session = await stripe.checkout.sessions.create({
     line_items: stripeItems,
     mode: 'payment',
-    success_url: 'http://goldencoffee.shop/success',
-    cancel_url: 'http://goldencoffee.shop/cancel',
+    success_url: 'https://goldencoffee.shop/success',
+    cancel_url: 'https://goldencoffee.shop/cancel',
   });
 
   // console.log(session);
