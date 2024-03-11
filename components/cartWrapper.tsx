@@ -34,7 +34,7 @@ export const CartWrapper = ({ user }: CartWrapperProps) => {
   const handleCheckout = async () => {
     try {
       // console.log(cart);
-      await fetch('http://localhost:3000/api/checkout', {
+      await fetch('http://goldencoffee.shop/api/checkout', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
