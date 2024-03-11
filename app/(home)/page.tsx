@@ -71,25 +71,6 @@ const HomePage = () => {
             and a large seating area.
           </p>
         </div>
-        <div className='flex-1'>
-          <div className='flex justify-center transform hover:scale-105 transition-all'>
-            <Link href='/foodtruck'>
-              <Image
-                src={'/foodtrucks.jpg'}
-                alt='picture of food truck'
-                width={300}
-                height={300}
-                className='rounded-lg w-auto h-auto'
-                priority
-              />
-            </Link>
-          </div>
-          <p className='text-center text-2xl p-1'>The Food Truck</p>
-          <p className='text-center text-l flex-wrap p-3'>
-            A food truck featuring a wide variety of pastries, pastries and
-            small breakfast items for on the go.
-          </p>
-        </div>
       </div>
 
       <div className='w-full mt-[100px] m-auto bg-[#f2e9e4] p-10'>
